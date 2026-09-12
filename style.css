@@ -377,9 +377,8 @@ h3{font-size:1.5rem;}
   overflow:hidden;
   box-shadow:0 10px 30px rgba(31,59,44,0.06);
 }
-.room-media{height:220px; overflow:hidden;}
-.room-standard{background:#e8dcc8;}
-.room-illustration{width:100%; height:100%; display:block;}
+.room-media{height:220px;}
+.room-standard{background:linear-gradient(150deg,#f2ead9,#c9a24b);}
 .room-suite{background:linear-gradient(150deg,#e8c4c4,#1f3b2c);}
 .room-villa{background:linear-gradient(150deg,#dcd3bd,#0e1e14);}
 .room-body{padding:30px 28px 34px;}
