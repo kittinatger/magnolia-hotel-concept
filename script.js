@@ -349,11 +349,16 @@ if (eventCalendar) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // Collect every upcoming Saturday/Sunday for the next ~4 months so
+  // Collect every upcoming Saturday/Sunday for the next ~6 months so
   // guests can plan that far ahead. Always computed from "today", so
-  // this list is never stale no matter when the page loads.
+  // this list is never stale no matter when the page loads. The
+  // calendar shows 3 months ahead by default; "View More Weekends"
+  // extends that to the full 6 months, and "View Fewer Weekends"
+  // collapses back down to 3.
+  const collapsedCutoff = new Date(today);
+  collapsedCutoff.setMonth(collapsedCutoff.getMonth() + 3);
   const horizonEnd = new Date(today);
-  horizonEnd.setMonth(horizonEnd.getMonth() + 4);
+  horizonEnd.setMonth(horizonEnd.getMonth() + 6);
 
   const upcomingWeekendDates = [];
   const cursor = new Date(today);
@@ -398,12 +403,12 @@ if (eventCalendar) {
     </div>
   `;
 
-  // Start collapsed to just the first month; the rest expand on demand.
+  // Start collapsed to the next 3 months; later months expand on demand.
   const monthsHtml = monthGroups
-    .map((group, i) => monthHtml(group, i > 0))
+    .map((group) => monthHtml(group, group.dates[0].date > collapsedCutoff))
     .join('');
 
-  const hasMore = monthGroups.length > 1;
+  const hasMore = monthGroups.some((group) => group.dates[0].date > collapsedCutoff);
   const toggleHtml = hasMore
     ? `<button type="button" class="btn btn-ghost calendar-toggle" id="calendarToggle">View More Weekends</button>`
     : '';
