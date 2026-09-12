@@ -621,6 +621,17 @@ h3{font-size:1.5rem;}
   border-color:var(--forest);
   color:var(--forest);
 }
+.events-toggle{
+  display:block;
+  margin:28px auto 0;
+  color:var(--forest);
+  border-color:rgba(10,83,71,0.35);
+}
+.events-toggle:hover{
+  background:rgba(10,83,71,0.06);
+  border-color:var(--forest);
+  color:var(--forest);
+}
 .calendar-strip{
   display:flex;
   flex-wrap:wrap;

@@ -100,6 +100,39 @@ if (eventModal) {
     pill.addEventListener('click', () => openInfoModal('Weekend Event', name, [desc, detail, facts]));
   });
 
+  // The full event list has grown long — show just the first row or
+  // two by default and let guests expand to see the rest.
+  const eventsGrid = document.querySelector('.events-grid');
+  if (eventsGrid) {
+    const pills = Array.from(eventsGrid.querySelectorAll('.event-pill'));
+    const visibleCount = 8;
+    if (pills.length > visibleCount) {
+      pills.forEach((pill, i) => {
+        if (i >= visibleCount) {
+          pill.classList.add('event-pill-extra');
+          pill.hidden = true;
+        }
+      });
+
+      const eventsToggle = document.createElement('button');
+      eventsToggle.type = 'button';
+      eventsToggle.className = 'btn btn-ghost events-toggle';
+      eventsToggle.textContent = 'View More Events';
+      eventsGrid.insertAdjacentElement('afterend', eventsToggle);
+
+      eventsToggle.addEventListener('click', () => {
+        const expanded = eventsToggle.classList.toggle('expanded');
+        pills.forEach((pill, i) => {
+          if (i >= visibleCount) pill.hidden = !expanded;
+        });
+        eventsToggle.textContent = expanded ? 'View Fewer Events' : 'View More Events';
+        if (!expanded) {
+          eventsToggle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+  }
+
   const bookableGrounds = {
     'Spa': { cta: 'Reserve a Spa Treatment', countLabel: 'Guests' },
     'Restaurant': { cta: 'Reserve a Table', countLabel: 'Guests' },
