@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
 </head>
 <body>
@@ -187,7 +187,81 @@
 
     <div class="room-tiers">
       <article class="room-card">
-        <div class="room-media room-standard"></div>
+        <div class="room-media room-standard">
+          <svg viewBox="0 0 400 260" class="room-illustration" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of a Standard Room with a curtained canopy bed, wood paneling, and a window desk nook">
+            <defs>
+              <linearGradient id="stdWall" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#f4ece0"/>
+                <stop offset="1" stop-color="#e8dcc8"/>
+              </linearGradient>
+              <linearGradient id="stdFloor" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#a9764f"/>
+                <stop offset="1" stop-color="#7c5334"/>
+              </linearGradient>
+              <linearGradient id="stdWood" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#8a5c37"/>
+                <stop offset="1" stop-color="#5f3c22"/>
+              </linearGradient>
+              <radialGradient id="stdGlow" cx="0.5" cy="0.15" r="0.85">
+                <stop offset="0" stop-color="#ffe9b8" stop-opacity="0.9"/>
+                <stop offset="1" stop-color="#ffe9b8" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <rect x="0" y="0" width="400" height="260" fill="url(#stdWall)"/>
+            <polygon points="0,168 400,150 400,260 0,260" fill="url(#stdFloor)"/>
+            <polygon points="0,168 400,150 400,158 0,176" fill="#5f3c22" opacity="0.4"/>
+
+            <rect x="0" y="0" width="178" height="200" fill="url(#stdWood)"/>
+            <rect x="0" y="0" width="178" height="200" fill="#000" opacity="0.06"/>
+            <rect x="10" y="10" width="158" height="180" fill="none" stroke="#3f2717" stroke-width="2" opacity="0.35"/>
+
+            <rect x="22" y="70" width="134" height="118" rx="4" fill="#2c1b10"/>
+            <rect x="30" y="78" width="118" height="102" fill="#e9c8a1"/>
+            <rect x="30" y="78" width="118" height="102" fill="url(#stdGlow)"/>
+
+            <path d="M34,80 C40,120 40,150 30,178 L30,80 Z" fill="#fbf7ef" opacity="0.92"/>
+            <path d="M144,80 C138,120 138,150 148,178 L148,80 Z" fill="#fbf7ef" opacity="0.92"/>
+            <path d="M34,80 Q90,66 144,80 L144,96 Q90,84 34,96 Z" fill="#fbf7ef" opacity="0.85"/>
+
+            <rect x="40" y="150" width="98" height="38" rx="3" fill="#faf6ee"/>
+            <rect x="40" y="150" width="98" height="10" rx="3" fill="#ded2b8"/>
+            <rect x="48" y="144" width="26" height="14" rx="3" fill="#2f4a3a"/>
+            <rect x="78" y="144" width="26" height="14" rx="3" fill="#2f4a3a"/>
+
+            <circle cx="30" cy="118" r="4" fill="#e7c15f"/>
+
+            <rect x="230" y="58" width="120" height="104" rx="2" fill="#3f2b1c"/>
+            <rect x="238" y="66" width="104" height="88" fill="#cfe3e6"/>
+            <rect x="238" y="66" width="104" height="88" fill="url(#stdGlow)" opacity="0.5"/>
+            <rect x="236" y="52" width="108" height="14" fill="#c9a875"/>
+            <rect x="236" y="52" width="108" height="3" fill="#a9855a"/>
+            <rect x="236" y="57" width="108" height="3" fill="#a9855a"/>
+            <rect x="236" y="62" width="108" height="3" fill="#a9855a"/>
+
+            <rect x="236" y="176" width="150" height="8" rx="2" fill="#6b4526"/>
+            <rect x="244" y="184" width="134" height="4" fill="#4a2f1a"/>
+            <rect x="248" y="188" width="6" height="44" fill="#4a2f1a"/>
+            <rect x="366" y="188" width="6" height="44" fill="#4a2f1a"/>
+
+            <rect x="278" y="200" width="42" height="36" fill="#4a2f1a"/>
+            <polygon points="278,200 320,200 310,192 288,192" fill="#5c3a21"/>
+            <rect x="282" y="236" width="4" height="18" fill="#3a2415"/>
+            <rect x="312" y="236" width="4" height="18" fill="#3a2415"/>
+
+            <rect x="256" y="150" width="3" height="34" fill="#3a2415"/>
+            <ellipse cx="257" cy="146" rx="14" ry="8" fill="#fdf1d8"/>
+            <ellipse cx="257" cy="146" rx="14" ry="8" fill="url(#stdGlow)"/>
+
+            <circle cx="298" cy="182" r="5" fill="#c98a7a"/>
+            <circle cx="292" cy="185" r="4" fill="#e8c4c4"/>
+            <circle cx="303" cy="186" r="4" fill="#e8c4c4"/>
+            <rect x="295" y="186" width="2" height="8" fill="#4a7a4f"/>
+
+            <rect x="188" y="10" width="30" height="10" rx="2" fill="#e7c15f" opacity="0.9"/>
+            <polygon points="188,20 218,20 210,32 196,32" fill="#e7c15f" opacity="0.6"/>
+          </svg>
+        </div>
         <div class="room-body">
           <span class="room-tag">Entry-Level Luxury</span>
           <h3>Standard Rooms</h3>
