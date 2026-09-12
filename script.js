@@ -101,6 +101,20 @@ if (eventModal) {
     card.addEventListener('click', () => openInfoModal(tag, title, `${size}\n\n${desc}\n\n${note}`));
   });
 
+  const buildingNarratives = {
+    South: "Step through the South Wing's carved lattice screens and the air changes — warmer, greener, closer to the coast. This is Magnolia's tribute to the beach towns and river deltas of Southeast Asia: open-air walkways, dark tropical hardwoods, and gardens that spill right up to the windows.\n\nRooms open onto private courtyards planted with ferns and flowering shrubs, echoing the region's love of bringing the outdoors in. Woven rattan, batik-inspired textiles, and soft brass fixtures carry the palette through every suite, while a rain-shower bathroom nods to the monsoon season the region is built around.\n\nIn the evenings, the wing's ground-floor terrace becomes an informal night market corner during weekend shows — the closest thing on the property to a street food lane in Bangkok or Hoi An, minus the flight.",
+    East: "The East Wing slows you down on purpose. Clean timber lines, paper-soft light through shoji-style screens, and long sightlines toward the garden borrow from a design language built around stillness — the kind found in a tea room or a temple courtyard.\n\nInteriors favor restraint over ornament: a single ceramic vessel, a low platform bed, a window framed like a piece of art. Materials are natural and honest — unlacquered wood, stone, washi-textured paper — chosen to age quietly rather than demand attention.\n\nIt's the wing guests return to for the seasonal rituals Magnolia is built around: watching the first snow settle over the pines, or the blueberry bushes ripen in summer, from a room designed to make watching feel like the whole point.",
+    North: "The North Wing is built for the mountain — thick felted textiles, deep saturated color, and a hearth-forward layout that makes every room feel like it's facing a fire even when it isn't. It draws on the nomadic craft traditions of North and Central Asia: hand-knotted rugs, embroidered wool, carved wooden furniture with real weight to it.\n\nThis is the wing that leans hardest into Magnolia's winter identity. Rooms are oriented toward the Gunflint Trail views, with boot rooms and gear storage built in rather than bolted on, so the transition from a day of skiing or ice fishing to a warm room is as short as possible.\n\nColor does the work other wings leave to texture — rust, ochre, and deep indigo against pale plaster walls, a palette meant to hold its own against a snow-white world outside the window.",
+    West: "The West Wing carries the pattern language of the old spice routes — hand-blocked textiles, geometric tilework underfoot, and archways that turn every hallway into a small procession. It's the most ornamented of Magnolia's four wings, built on the idea that beauty can be structural, not just decorative.\n\nDeep jewel tones sit against whitewashed walls, and courtyard-facing rooms use latticed screens to filter light into shifting geometric patterns through the day — a nod to the region's long history of turning climate control into art.\n\nIn the evenings, the wing's covered walkway is where the weekend market's textile and spice-inspired craft booths tend to gather, keeping the wing's spirit alive outside its own walls."
+  };
+
+  document.querySelectorAll('.building-card').forEach((card) => {
+    const title = card.querySelector('h3').textContent;
+    const narrative = buildingNarratives[title];
+    if (!narrative) return;
+    card.addEventListener('click', () => openInfoModal('Wing', title, narrative));
+  });
+
   // Expose so the calendar (built below) can reuse the same modal.
   window.__openEventModal = (name, desc) => openInfoModal('Weekend Event', name, desc);
 }
