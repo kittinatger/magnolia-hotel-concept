@@ -331,7 +331,16 @@ if (eventCalendar) {
   const activities = [
     'Fire Dance', 'Fashion Show', 'Community Space', 'Live Folk Music',
     'Night Market', 'Lion Dance Performance', 'Taiko Drum Performance',
-    'Moon Viewing & Lantern Festival'
+    'Moon Viewing & Lantern Festival', 'Shadow Puppet Theatre',
+    'Classical Dance Recital', 'Martial Arts Demonstration',
+    'Acrobatics & Contortion Show', 'Bamboo Flute Recital',
+    'Folk Storytelling Circle', 'Silk Ribbon Dance', 'Dragon Parade',
+    'Opera Excerpt Performance', 'Puppet Marionette Show',
+    'Whirling Dervish Performance', 'Bhangra Dance Performance',
+    'Belly Dance Performance', 'Sitar & Tabla Recital',
+    'Qawwali Music Performance', 'Dombra & Central Asian Strings Recital',
+    'Oud Recital', 'Silk Road Caravan Storytelling',
+    'Henna Art Demonstration', 'Uzbek Folk Dance Performance'
   ];
   const weekdayFmt = new Intl.DateTimeFormat('en-US', { weekday: 'short' });
   const monthFmt = new Intl.DateTimeFormat('en-US', { month: 'short' });
