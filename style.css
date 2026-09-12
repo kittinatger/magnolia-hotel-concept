@@ -504,6 +504,9 @@ h3{font-size:1.5rem;}
   margin:0 auto;
 }
 .event-pill{
+  appearance:none;
+  font-family:inherit;
+  cursor:pointer;
   padding:14px 26px;
   border-radius:40px;
   background:var(--white);
@@ -552,6 +555,9 @@ h3{font-size:1.5rem;}
   padding:4px;
 }
 .calendar-card{
+  appearance:none;
+  font-family:inherit;
+  cursor:pointer;
   flex:0 0 auto;
   width:150px;
   background:var(--white);
@@ -560,6 +566,12 @@ h3{font-size:1.5rem;}
   padding:20px 18px;
   text-align:center;
   box-shadow:0 8px 20px rgba(31,59,44,0.05);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.calendar-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px rgba(31,59,44,0.1);
+  border-color:rgba(201,162,75,0.5);
 }
 .calendar-card .cal-weekday{
   display:block;
@@ -733,3 +745,48 @@ h3{font-size:1.5rem;}
   .grounds-grid{grid-template-columns:1fr;}
   .contact-form{padding:28px;}
 }
+
+/* Event modal */
+.event-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:200;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.event-modal.open{display:flex;}
+.event-modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(15,43,36,0.6);
+  backdrop-filter:blur(2px);
+}
+.event-modal-panel{
+  position:relative;
+  z-index:1;
+  background:var(--cream);
+  border-radius:var(--radius);
+  padding:44px 40px;
+  max-width:420px;
+  width:100%;
+  box-shadow:0 24px 60px rgba(15,43,36,0.3);
+}
+.event-modal-panel h3{margin-bottom:14px;}
+.event-modal-panel p:not(.eyebrow){color:var(--ink-soft); font-size:1rem; margin:0;}
+.event-modal-close{
+  appearance:none;
+  position:absolute;
+  top:16px; right:16px;
+  width:32px; height:32px;
+  border-radius:50%;
+  border:1px solid rgba(31,59,44,0.15);
+  background:var(--white);
+  color:var(--ink);
+  font-size:1.2rem;
+  line-height:1;
+  cursor:pointer;
+  transition:background .2s ease, border-color .2s ease;
+}
+.event-modal-close:hover{background:var(--cream-2); border-color:var(--forest);}

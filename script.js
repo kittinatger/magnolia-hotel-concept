@@ -30,6 +30,46 @@ if (contactForm) {
   });
 }
 
+const eventModal = document.getElementById('eventModal');
+const eventInfo = {};
+if (eventModal) {
+  const modalTitle = document.getElementById('eventModalTitle');
+  const modalDesc = document.getElementById('eventModalDesc');
+  let lastFocused = null;
+
+  const openEventModal = (name, desc) => {
+    modalTitle.textContent = name;
+    modalDesc.textContent = desc || '';
+    lastFocused = document.activeElement;
+    eventModal.classList.add('open');
+    eventModal.setAttribute('aria-hidden', 'false');
+    eventModal.querySelector('.event-modal-close').focus();
+  };
+
+  const closeEventModal = () => {
+    eventModal.classList.remove('open');
+    eventModal.setAttribute('aria-hidden', 'true');
+    if (lastFocused) lastFocused.focus();
+  };
+
+  eventModal.addEventListener('click', (e) => {
+    if (e.target.hasAttribute('data-close')) closeEventModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && eventModal.classList.contains('open')) closeEventModal();
+  });
+
+  document.querySelectorAll('.event-pill[data-event]').forEach((pill) => {
+    const name = pill.dataset.event;
+    const desc = pill.dataset.desc;
+    eventInfo[name] = desc;
+    pill.addEventListener('click', () => openEventModal(name, desc));
+  });
+
+  // Expose so the calendar (built below) can reuse the same modal.
+  window.__openEventModal = openEventModal;
+}
+
 const eventCalendar = document.getElementById('eventCalendar');
 if (eventCalendar) {
   const activities = [
@@ -80,12 +120,12 @@ if (eventCalendar) {
         ${group.dates
           .map(
             ({ date, activity }) => `
-              <div class="calendar-card">
+              <button type="button" class="calendar-card" data-event="${activity}" data-date="${weekdayFmt.format(date)} ${monthFmt.format(date)} ${date.getDate()}">
                 <span class="cal-weekday">${weekdayFmt.format(date)}</span>
                 <span class="cal-day">${date.getDate()}</span>
                 <span class="cal-month">${monthFmt.format(date)}</span>
                 <span class="cal-activity">${activity}</span>
-              </div>
+              </button>
             `
           )
           .join('')}
@@ -104,6 +144,17 @@ if (eventCalendar) {
     : '';
 
   eventCalendar.innerHTML = `<div class="calendar-months">${monthsHtml}</div>${toggleHtml}`;
+
+  eventCalendar.querySelectorAll('.calendar-card[data-event]').forEach((card) => {
+    card.addEventListener('click', () => {
+      const name = card.dataset.event;
+      const desc = eventInfo[name] || '';
+      const date = card.dataset.date;
+      if (window.__openEventModal) {
+        window.__openEventModal(name, date ? `${date} — ${desc}` : desc);
+      }
+    });
+  });
 
   const calendarToggle = document.getElementById('calendarToggle');
   if (calendarToggle) {
