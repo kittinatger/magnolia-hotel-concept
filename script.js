@@ -38,27 +38,30 @@ if (eventModal) {
   const modalBody = document.getElementById('eventModalBody');
   let lastFocused = null;
 
-  // body can be a plain string (rendered as one paragraph) or an
-  // array of strings (rendered as a bullet list) — covers both the
-  // one-line event descriptions and the season/room detail lists.
+  // body is an array of segments: a string renders as a paragraph,
+  // a nested array renders as a bullet list — lets a single modal
+  // mix narrative paragraphs with a detail list in any order.
   const openInfoModal = (eyebrow, title, body) => {
     modalEyebrow.textContent = eyebrow || '';
     modalTitle.textContent = title;
     modalBody.innerHTML = '';
-    if (Array.isArray(body)) {
-      const ul = document.createElement('ul');
-      ul.className = 'event-modal-list';
-      body.forEach((line) => {
-        const li = document.createElement('li');
-        li.textContent = line;
-        ul.appendChild(li);
-      });
-      modalBody.appendChild(ul);
-    } else {
-      const p = document.createElement('p');
-      p.textContent = body || '';
-      modalBody.appendChild(p);
-    }
+    const segments = Array.isArray(body) ? body : [body];
+    segments.forEach((segment) => {
+      if (Array.isArray(segment)) {
+        const ul = document.createElement('ul');
+        ul.className = 'event-modal-list';
+        segment.forEach((line) => {
+          const li = document.createElement('li');
+          li.textContent = line;
+          ul.appendChild(li);
+        });
+        modalBody.appendChild(ul);
+      } else if (segment) {
+        const p = document.createElement('p');
+        p.textContent = segment;
+        modalBody.appendChild(p);
+      }
+    });
     lastFocused = document.activeElement;
     eventModal.classList.add('open');
     eventModal.setAttribute('aria-hidden', 'false');
@@ -81,16 +84,31 @@ if (eventModal) {
   document.querySelectorAll('.event-pill[data-event]').forEach((pill) => {
     const name = pill.dataset.event;
     const desc = pill.dataset.desc;
-    eventInfo[name] = desc;
-    pill.addEventListener('click', () => openInfoModal('Weekend Event', name, desc));
+    const detail = pill.dataset.detail;
+    eventInfo[name] = detail ? `${desc} ${detail}` : desc;
+    pill.addEventListener('click', () => openInfoModal('Weekend Event', name, [desc, detail]));
   });
+
+  const seasonIntros = {
+    Summer: 'Long days on the water and in the pines — Magnolia’s busiest, brightest season, with warm afternoons and cool evenings on the lake.',
+    Autumn: 'The mountains turn gold before the first snow, and the crowds thin out — a quieter, slower stretch on the grounds.',
+    Winter: 'The season Magnolia’s North Wing was built for: deep snow, deep quiet, and a fire waiting in every room.',
+    Spring: 'The quietest, greenest season on the grounds, as the wildlife wakes up and the trails empty out.'
+  };
 
   document.querySelectorAll('.season-card').forEach((card) => {
     const title = card.querySelector('h3').textContent;
     const months = card.querySelector('.season-months').textContent;
     const items = Array.from(card.querySelectorAll('li')).map((li) => li.textContent);
-    card.addEventListener('click', () => openInfoModal(`Season · ${months}`, title, items));
+    const intro = seasonIntros[title];
+    card.addEventListener('click', () => openInfoModal(`Season · ${months}`, title, [intro, items]));
   });
+
+  const roomAmenities = {
+    'Standard Rooms': ['Premium bathroom with rain shower', 'Separate soaking tub in select rooms', 'Small indoor lounge or desk nook', 'Daily housekeeping'],
+    'Luxury Suites': ['Distinct, separate living room', 'Private bedroom with enhanced closets', 'Upgraded balcony or terrace', 'Premium bath amenities'],
+    'Resort Villas & Bungalows': ['Private plunge pool or Jacuzzi', 'Dedicated outdoor seating', 'Sun deck among the pines', 'Expansive indoor-outdoor flow']
+  };
 
   document.querySelectorAll('.room-card').forEach((card) => {
     const title = card.querySelector('h3').textContent;
@@ -98,21 +116,52 @@ if (eventModal) {
     const size = card.querySelector('.room-size').textContent;
     const desc = card.querySelector('.room-body > p:last-child').textContent;
     const note = 'Available in all four wings — South, East, North & West — each priced individually.';
-    card.addEventListener('click', () => openInfoModal(tag, title, `${size}\n\n${desc}\n\n${note}`));
+    const amenities = roomAmenities[title] || [];
+    card.addEventListener('click', () => openInfoModal(tag, title, [size, desc, amenities, note]));
   });
 
   const buildingNarratives = {
-    South: "Step through the South Wing's carved lattice screens and the air changes — warmer, greener, closer to the coast. This is Magnolia's tribute to the beach towns and river deltas of Southeast Asia: open-air walkways, dark tropical hardwoods, and gardens that spill right up to the windows.\n\nRooms open onto private courtyards planted with ferns and flowering shrubs, echoing the region's love of bringing the outdoors in. Woven rattan, batik-inspired textiles, and soft brass fixtures carry the palette through every suite, while a rain-shower bathroom nods to the monsoon season the region is built around.\n\nIn the evenings, the wing's ground-floor terrace becomes an informal night market corner during weekend shows — the closest thing on the property to a street food lane in Bangkok or Hoi An, minus the flight.",
-    East: "The East Wing slows you down on purpose. Clean timber lines, paper-soft light through shoji-style screens, and long sightlines toward the garden borrow from a design language built around stillness — the kind found in a tea room or a temple courtyard.\n\nInteriors favor restraint over ornament: a single ceramic vessel, a low platform bed, a window framed like a piece of art. Materials are natural and honest — unlacquered wood, stone, washi-textured paper — chosen to age quietly rather than demand attention.\n\nIt's the wing guests return to for the seasonal rituals Magnolia is built around: watching the first snow settle over the pines, or the blueberry bushes ripen in summer, from a room designed to make watching feel like the whole point.",
-    North: "The North Wing is built for the mountain — thick felted textiles, deep saturated color, and a hearth-forward layout that makes every room feel like it's facing a fire even when it isn't. It draws on the nomadic craft traditions of North and Central Asia: hand-knotted rugs, embroidered wool, carved wooden furniture with real weight to it.\n\nThis is the wing that leans hardest into Magnolia's winter identity. Rooms are oriented toward the Gunflint Trail views, with boot rooms and gear storage built in rather than bolted on, so the transition from a day of skiing or ice fishing to a warm room is as short as possible.\n\nColor does the work other wings leave to texture — rust, ochre, and deep indigo against pale plaster walls, a palette meant to hold its own against a snow-white world outside the window.",
-    West: "The West Wing carries the pattern language of the old spice routes — hand-blocked textiles, geometric tilework underfoot, and archways that turn every hallway into a small procession. It's the most ornamented of Magnolia's four wings, built on the idea that beauty can be structural, not just decorative.\n\nDeep jewel tones sit against whitewashed walls, and courtyard-facing rooms use latticed screens to filter light into shifting geometric patterns through the day — a nod to the region's long history of turning climate control into art.\n\nIn the evenings, the wing's covered walkway is where the weekend market's textile and spice-inspired craft booths tend to gather, keeping the wing's spirit alive outside its own walls."
+    South: {
+      paragraphs: [
+        "Step through the South Wing's carved lattice screens and the air changes — warmer, greener, closer to the coast. This is Magnolia's tribute to the beach towns and river deltas of Southeast Asia: open-air walkways, dark tropical hardwoods, and gardens that spill right up to the windows.",
+        "Rooms open onto private courtyards planted with ferns and flowering shrubs, echoing the region's love of bringing the outdoors in. Woven rattan, batik-inspired textiles, and soft brass fixtures carry the palette through every suite, while a rain-shower bathroom nods to the monsoon season the region is built around.",
+        "In the evenings, the wing's ground-floor terrace becomes an informal night market corner during weekend shows — the closest thing on the property to a street food lane in Bangkok or Hoi An, minus the flight."
+      ],
+      details: ['Open-air lattice screens throughout', 'Private courtyards with rain-shower baths', 'Ground-floor terrace hosts the weekend night market']
+    },
+    East: {
+      paragraphs: [
+        "The East Wing slows you down on purpose. Clean timber lines, paper-soft light through shoji-style screens, and long sightlines toward the garden borrow from a design language built around stillness — the kind found in a tea room or a temple courtyard.",
+        "Interiors favor restraint over ornament: a single ceramic vessel, a low platform bed, a window framed like a piece of art. Materials are natural and honest — unlacquered wood, stone, washi-textured paper — chosen to age quietly rather than demand attention.",
+        "It's the wing guests return to for the seasonal rituals Magnolia is built around: watching the first snow settle over the pines, or the blueberry bushes ripen in summer, from a room designed to make watching feel like the whole point."
+      ],
+      details: ['Shoji-style screens and low platform beds', 'Natural, unlacquered materials throughout', 'Long sightlines framed toward the garden']
+    },
+    North: {
+      paragraphs: [
+        "The North Wing is built for the mountain — thick felted textiles, deep saturated color, and a hearth-forward layout that makes every room feel like it's facing a fire even when it isn't. It draws on the nomadic craft traditions of North and Central Asia: hand-knotted rugs, embroidered wool, carved wooden furniture with real weight to it.",
+        "This is the wing that leans hardest into Magnolia's winter identity. Rooms are oriented toward the Gunflint Trail views, with boot rooms and gear storage built in rather than bolted on, so the transition from a day of skiing or ice fishing to a warm room is as short as possible.",
+        "Color does the work other wings leave to texture — rust, ochre, and deep indigo against pale plaster walls, a palette meant to hold its own against a snow-white world outside the window."
+      ],
+      details: ['Hearth-forward room layouts', 'Built-in boot rooms and gear storage', 'Hand-knotted rugs and embroidered wool textiles']
+    },
+    West: {
+      paragraphs: [
+        "The West Wing carries the pattern language of the old spice routes — hand-blocked textiles, geometric tilework underfoot, and archways that turn every hallway into a small procession. It's the most ornamented of Magnolia's four wings, built on the idea that beauty can be structural, not just decorative.",
+        "Deep jewel tones sit against whitewashed walls, and courtyard-facing rooms use latticed screens to filter light into shifting geometric patterns through the day — a nod to the region's long history of turning climate control into art.",
+        "In the evenings, the wing's covered walkway is where the weekend market's textile and spice-inspired craft booths tend to gather, keeping the wing's spirit alive outside its own walls."
+      ],
+      details: ['Hand-blocked textiles and geometric tilework', 'Latticed screens filter light into shifting pattern', 'Covered walkway hosts the weekend craft booths']
+    }
   };
 
   document.querySelectorAll('.building-card').forEach((card) => {
     const title = card.querySelector('h3').textContent;
-    const narrative = buildingNarratives[title];
-    if (!narrative) return;
-    card.addEventListener('click', () => openInfoModal('Wing', title, narrative));
+    const wing = buildingNarratives[title];
+    if (!wing) return;
+    card.addEventListener('click', () =>
+      openInfoModal('Wing', title, [...wing.paragraphs, wing.details])
+    );
   });
 
   // Expose so the calendar (built below) can reuse the same modal.
