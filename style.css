@@ -285,69 +285,6 @@ h3{font-size:1.5rem;}
   text-transform:uppercase;
 }
 
-/* Why Magnolia */
-.why{padding:120px 0; background:var(--cream-2);}
-.why-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  margin-top:60px;
-}
-.why-col{
-  background:var(--white);
-  border-radius:var(--radius);
-  padding:40px 36px;
-  box-shadow:0 10px 30px rgba(31,59,44,0.06);
-}
-.why-col-solution{
-  background:var(--forest-dark);
-}
-.why-col-title{
-  font-size:0.78rem;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:28px;
-}
-.why-col-solution .why-col-title{color:var(--gold);}
-.why-item + .why-item{margin-top:28px; padding-top:28px; border-top:1px solid rgba(31,59,44,0.1);}
-.why-col-solution .why-item + .why-item{border-top-color:rgba(255,255,255,0.15);}
-.why-item h4{
-  font-family:var(--serif);
-  font-weight:600;
-  font-size:1.15rem;
-  color:var(--forest-dark);
-  margin:0 0 10px;
-}
-.why-col-solution .why-item h4{color:var(--cream);}
-.why-item p{color:var(--ink-soft); font-size:0.95rem; margin:0;}
-.why-col-solution .why-item p{color:rgba(247,242,232,0.8);}
-
-/* Market & Customer */
-.market{padding:120px 0; background:var(--cream);}
-.market-grid{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:40px;
-  margin-top:60px;
-}
-.market-item-num{
-  display:block;
-  font-family:var(--serif);
-  font-size:1.6rem;
-  font-weight:700;
-  color:var(--gold);
-  margin-bottom:16px;
-}
-.market-item h3{
-  font-family:var(--serif);
-  font-weight:600;
-  font-size:1.2rem;
-  color:var(--forest-dark);
-  margin:0 0 12px;
-}
-.market-item p{color:var(--ink-soft); font-size:0.95rem;}
-
 /* Buildings */
 .buildings{padding:110px 0; background:var(--cream-2);}
 .buildings-grid{
@@ -975,8 +912,6 @@ h3{font-size:1.5rem;}
 @media (max-width:1100px){
   .intro-grid{grid-template-columns:1fr; gap:48px;}
   .intro-stats{border-left:none; padding-left:0; border-top:1px solid rgba(31,59,44,0.15); padding-top:32px;}
-  .why-grid{grid-template-columns:1fr; gap:28px;}
-  .market-grid{grid-template-columns:1fr; gap:36px;}
   .buildings-grid{grid-template-columns:repeat(2, 1fr);}
   .room-tiers{grid-template-columns:repeat(2, 1fr);}
   .season-grid{grid-template-columns:repeat(2, 1fr);}
