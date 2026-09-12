@@ -328,7 +328,11 @@ if (eventModal) {
 
 const eventCalendar = document.getElementById('eventCalendar');
 if (eventCalendar) {
-  const activities = ['Fire Dance', 'Fashion Show', 'Community Space'];
+  const activities = [
+    'Fire Dance', 'Fashion Show', 'Community Space', 'Live Folk Music',
+    'Night Market', 'Lion Dance Performance', 'Taiko Drum Performance',
+    'Moon Viewing & Lantern Festival'
+  ];
   const weekdayFmt = new Intl.DateTimeFormat('en-US', { weekday: 'short' });
   const monthFmt = new Intl.DateTimeFormat('en-US', { month: 'short' });
   const monthLabelFmt = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
