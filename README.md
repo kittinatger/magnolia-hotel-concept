@@ -32,16 +32,6 @@ The project exists to explore hospitality branding, information architecture, an
 - **Getting Here** — airport shuttle, local transit, and driving directions
 - Fully responsive, from mobile through desktop, with a consistent popup/modal system used across every clickable section
 
-## Tech Stack
-
-No build tooling, no framework — just:
-
-- `index.html` — page structure and content
-- `style.css` — all styling, including responsive breakpoints
-- `script.js` — modal system, dynamic calendar, and demo booking/contact forms
-
-Fonts: [Fraunces](https://fonts.google.com/specimen/Fraunces) (serif) and [Jost](https://fonts.google.com/specimen/Jost) (sans-serif) via Google Fonts.
-
 ## Deployment
 
 The site is deployed via GitHub Pages directly from this repository at:
@@ -54,3 +44,5 @@ Magnolia is a fictional concept created for design and development practice. It 
 ## Credits
 
 Designed and built by [Kittinat Gerdsri](https://kittinatger.github.io/kittinat-gerdsri/).
+
+Fonts: [Fraunces](https://fonts.google.com/specimen/Fraunces) (serif) and [Jost](https://fonts.google.com/specimen/Jost) (sans-serif) via Google Fonts.
