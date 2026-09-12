@@ -413,14 +413,20 @@ if (eventCalendar) {
   const render = () => {
     const cutoff = stepCutoffs[stepIndex];
     const atMax = stepIndex === stepCutoffs.length - 1;
+    const atMin = stepIndex === 0;
 
     const monthsHtml = monthGroups
       .map((group) => monthHtml(group, group.dates[0].date > cutoff))
       .join('');
 
-    const toggleHtml = `<button type="button" class="btn btn-ghost calendar-toggle" id="calendarToggle">${
-      atMax ? 'View Fewer Weekends' : 'View More Weekends'
-    }</button>`;
+    // The "fewer" button only appears once guests have clicked "more"
+    // at least once — no point offering to collapse the minimum view.
+    const toggleHtml = `
+      <div class="calendar-toggles">
+        ${!atMax ? '<button type="button" class="btn btn-ghost calendar-toggle" id="calendarMore">View More Weekends</button>' : ''}
+        ${!atMin ? '<button type="button" class="btn btn-ghost calendar-toggle" id="calendarFewer">View Fewer Weekends</button>' : ''}
+      </div>
+    `;
 
     eventCalendar.innerHTML = `<div class="calendar-months">${monthsHtml}</div>${toggleHtml}`;
 
@@ -435,8 +441,12 @@ if (eventCalendar) {
       });
     });
 
-    document.getElementById('calendarToggle').addEventListener('click', () => {
-      stepIndex = atMax ? 0 : stepIndex + 1;
+    document.getElementById('calendarMore')?.addEventListener('click', () => {
+      stepIndex += 1;
+      render();
+    });
+    document.getElementById('calendarFewer')?.addEventListener('click', () => {
+      stepIndex -= 1;
       render();
     });
   };
