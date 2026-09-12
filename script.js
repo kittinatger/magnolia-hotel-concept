@@ -73,27 +73,46 @@ if (eventCalendar) {
     group.dates.push({ date, activity: activities[i % activities.length] });
   });
 
-  eventCalendar.innerHTML = monthGroups
-    .map(
-      (group) => `
-        <div class="calendar-month">
-          <p class="calendar-month-label">${group.label}</p>
-          <div class="calendar-strip">
-            ${group.dates
-              .map(
-                ({ date, activity }) => `
-                  <div class="calendar-card">
-                    <span class="cal-weekday">${weekdayFmt.format(date)}</span>
-                    <span class="cal-day">${date.getDate()}</span>
-                    <span class="cal-month">${monthFmt.format(date)}</span>
-                    <span class="cal-activity">${activity}</span>
-                  </div>
-                `
-              )
-              .join('')}
-          </div>
-        </div>
-      `
-    )
+  const monthHtml = (group, hidden) => `
+    <div class="calendar-month${hidden ? ' calendar-extra' : ''}"${hidden ? ' hidden' : ''}>
+      <p class="calendar-month-label">${group.label}</p>
+      <div class="calendar-strip">
+        ${group.dates
+          .map(
+            ({ date, activity }) => `
+              <div class="calendar-card">
+                <span class="cal-weekday">${weekdayFmt.format(date)}</span>
+                <span class="cal-day">${date.getDate()}</span>
+                <span class="cal-month">${monthFmt.format(date)}</span>
+                <span class="cal-activity">${activity}</span>
+              </div>
+            `
+          )
+          .join('')}
+      </div>
+    </div>
+  `;
+
+  // Start collapsed to just the first month; the rest expand on demand.
+  const monthsHtml = monthGroups
+    .map((group, i) => monthHtml(group, i > 0))
     .join('');
+
+  const hasMore = monthGroups.length > 1;
+  const toggleHtml = hasMore
+    ? `<button type="button" class="btn btn-ghost calendar-toggle" id="calendarToggle">View More Weekends</button>`
+    : '';
+
+  eventCalendar.innerHTML = `<div class="calendar-months">${monthsHtml}</div>${toggleHtml}`;
+
+  const calendarToggle = document.getElementById('calendarToggle');
+  if (calendarToggle) {
+    calendarToggle.addEventListener('click', () => {
+      const expanded = eventCalendar.classList.toggle('calendar-expanded');
+      eventCalendar.querySelectorAll('.calendar-extra').forEach((el) => {
+        el.hidden = !expanded;
+      });
+      calendarToggle.textContent = expanded ? 'View Fewer Weekends' : 'View More Weekends';
+    });
+  }
 }
