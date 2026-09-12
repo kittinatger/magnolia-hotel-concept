@@ -292,9 +292,10 @@ h3{font-size:1.5rem;}
 }
 .building-card{
   appearance:none;
-  font-family:inherit;
+  font:inherit;
   cursor:pointer;
-  display:block;
+  display:flex;
+  flex-direction:column;
   width:100%;
   text-align:left;
   background:var(--white);
@@ -381,9 +382,10 @@ h3{font-size:1.5rem;}
 }
 .room-card{
   appearance:none;
-  display:block;
+  display:flex;
+  flex-direction:column;
   width:100%;
-  font-family:inherit;
+  font:inherit;
   cursor:pointer;
   text-align:left;
   background:var(--white);
@@ -436,9 +438,10 @@ h3{font-size:1.5rem;}
 }
 .season-card{
   appearance:none;
-  display:block;
+  display:flex;
+  flex-direction:column;
   width:100%;
-  font-family:inherit;
+  font:inherit;
   cursor:pointer;
   text-align:left;
   background:rgba(255,255,255,0.04);
@@ -476,7 +479,7 @@ h3{font-size:1.5rem;}
 }
 .event-pill{
   appearance:none;
-  font-family:inherit;
+  font:inherit;
   cursor:pointer;
   padding:14px 26px;
   border-radius:40px;
@@ -527,7 +530,7 @@ h3{font-size:1.5rem;}
 }
 .calendar-card{
   appearance:none;
-  font-family:inherit;
+  font:inherit;
   cursor:pointer;
   flex:0 0 auto;
   width:150px;
