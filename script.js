@@ -133,10 +133,11 @@ if (eventModal) {
     const title = card.querySelector('h3').textContent;
     const tag = card.querySelector('.room-tag').textContent;
     const size = card.querySelector('.room-size').textContent;
+    const price = card.querySelector('.room-price').textContent;
     const desc = card.querySelector('.room-body > p:last-child').textContent;
-    const note = 'Available in all four wings — South, East, North & West — each priced individually.';
+    const note = 'Available in all four wings — South, East, North & West — each priced individually. Rates vary by wing and season; contact us for exact pricing.';
     const amenities = roomAmenities[title] || [];
-    card.addEventListener('click', () => openInfoModal(tag, title, [size, desc, amenities, note]));
+    card.addEventListener('click', () => openInfoModal(tag, title, [size, price, desc, amenities, note]));
   });
 
   const buildingNarratives = {

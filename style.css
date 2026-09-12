@@ -372,6 +372,12 @@ h3{font-size:1.5rem;}
 .ground-item h3{font-size:1.15rem; margin-bottom:10px;}
 .ground-item p{color:rgba(250,246,238,0.72); font-size:0.92rem; margin:0;}
 
+/* Weddings */
+.weddings{padding:100px 0; background:var(--cream-2);}
+.weddings-inner{max-width:760px; margin:0 auto;}
+.weddings-details{margin:40px 0 36px;}
+.weddings-details p{color:var(--ink-soft); font-size:1.05rem; margin-bottom:18px; text-align:center;}
+
 /* Rooms */
 .rooms{padding:120px 0; background:var(--cream);}
 .room-tiers{
@@ -414,8 +420,15 @@ h3{font-size:1.5rem;}
   font-size:0.85rem;
   color:var(--forest);
   font-weight:500;
-  margin:0 0 14px;
+  margin:0 0 6px;
   letter-spacing:0.02em;
+}
+.room-price{
+  font-family:var(--serif);
+  font-size:1.15rem;
+  font-weight:600;
+  color:var(--forest-dark);
+  margin:0 0 14px;
 }
 .room-card p:last-child{color:var(--ink-soft); font-size:0.96rem;}
 .rooms-note{
@@ -594,6 +607,10 @@ h3{font-size:1.5rem;}
   font-size:0.95rem;
 }
 .location-facts li:first-child{border-top:none;}
+.location-subhead{
+  font-size:1.15rem;
+  margin:32px 0 12px;
+}
 .location-map{
   border-radius:var(--radius);
   overflow:hidden;
@@ -610,6 +627,47 @@ h3{font-size:1.5rem;}
 .membership{padding:100px 0; background:var(--forest); color:var(--white);}
 .membership h2{color:var(--white);}
 .membership .section-sub{color:rgba(250,246,238,0.75);}
+.membership-card{
+  max-width:420px;
+  margin:48px auto 0;
+  padding:44px 40px;
+  background:var(--cream);
+  border-radius:var(--radius);
+  text-align:center;
+  box-shadow:0 24px 60px rgba(15,43,36,0.3);
+}
+.membership-price{
+  display:block;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:2.4rem;
+  color:var(--forest-dark);
+}
+.membership-period{
+  font-family:var(--sans);
+  font-size:1rem;
+  font-weight:400;
+  color:var(--ink-soft);
+}
+.membership-price-usd{
+  display:block;
+  font-size:0.85rem;
+  color:var(--ink-soft);
+  margin:4px 0 28px;
+}
+.membership-benefits{
+  list-style:none;
+  margin:0 0 32px;
+  padding:0;
+  text-align:left;
+}
+.membership-benefits li{
+  padding:12px 0;
+  border-top:1px solid rgba(31,59,44,0.1);
+  color:var(--ink-soft);
+  font-size:0.95rem;
+}
+.membership-benefits li:first-child{border-top:none;}
 
 /* Contact */
 .contact{padding:120px 0; background:var(--cream-2);}
