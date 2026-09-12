@@ -90,12 +90,56 @@ if (eventModal) {
     pill.addEventListener('click', () => openInfoModal('Weekend Event', name, [desc, detail, facts]));
   });
 
+  const bookableGrounds = {
+    'Spa': { cta: 'Reserve a Spa Treatment', countLabel: 'Guests' },
+    'Restaurant': { cta: 'Reserve a Table', countLabel: 'Guests' },
+    'Indoor Activity Hall': { cta: 'Reserve Activity Hall Time', countLabel: 'Guests' },
+    'History Museum': { cta: 'Reserve a Museum Visit', countLabel: 'Guests' },
+    'Grounds & Parking': { cta: 'Reserve Parking', countLabel: 'Vehicles' }
+  };
+
+  const appendBookingForm = (title) => {
+    const booking = bookableGrounds[title];
+    if (!booking) return;
+
+    modalBody.appendChild(document.createElement('hr')).className = 'modal-divider';
+
+    const wrap = document.createElement('div');
+    wrap.className = 'booking-form-wrap';
+    wrap.innerHTML = `
+      <p class="booking-form-label">${booking.cta}</p>
+      <form class="booking-form">
+        <label>Name<input type="text" name="name" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Preferred Date<input type="date" name="date" required></label>
+        <label>${booking.countLabel}<input type="number" name="count" min="1" value="1" required></label>
+        <button type="submit" class="btn btn-primary">${booking.cta}</button>
+        <p class="booking-note"></p>
+      </form>
+    `;
+    modalBody.appendChild(wrap);
+
+    const dateInput = wrap.querySelector('input[name="date"]');
+    dateInput.min = new Date().toISOString().split('T')[0];
+
+    const form = wrap.querySelector('form');
+    const note = wrap.querySelector('.booking-note');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      note.textContent = 'Thank you — this is a demo reservation and hasn’t been sent. Our team will follow up by email once bookings go live.';
+      form.reset();
+    });
+  };
+
   document.querySelectorAll('.ground-item[data-desc]').forEach((item) => {
     const title = item.querySelector('h3').textContent;
     const desc = item.dataset.desc;
     const detail = item.dataset.detail;
     const facts = (item.dataset.facts || '').split('|').filter(Boolean);
-    item.addEventListener('click', () => openInfoModal('The Grounds', title, [desc, detail, facts]));
+    item.addEventListener('click', () => {
+      openInfoModal('The Grounds', title, [desc, detail, facts]);
+      appendBookingForm(title);
+    });
   });
 
   const seasonExtras = {

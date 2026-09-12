@@ -826,6 +826,41 @@ h3{font-size:1.5rem;}
   border-top:1px solid rgba(31,59,44,0.1);
 }
 .event-modal-list li:first-child{border-top:none; padding-top:0;}
+.modal-divider{border:none; border-top:1px solid rgba(31,59,44,0.12); margin:8px 0 16px;}
+.booking-form-label{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:1.05rem;
+  color:var(--forest-dark);
+  margin:0 0 14px;
+}
+.booking-form{display:flex; flex-direction:column; gap:14px;}
+.booking-form label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:0.75rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.booking-form input{
+  font-family:var(--sans);
+  font-size:1rem;
+  padding:10px 12px;
+  border:1px solid rgba(31,59,44,0.2);
+  border-radius:var(--radius);
+  background:var(--white);
+  color:var(--ink);
+}
+.booking-form input:focus{outline:none; border-color:var(--gold);}
+.booking-form .btn{margin-top:2px;}
+.booking-note{
+  font-size:0.85rem;
+  color:var(--forest);
+  margin:0;
+  min-height:1.2em;
+}
 .event-modal-close{
   appearance:none;
   position:absolute;
