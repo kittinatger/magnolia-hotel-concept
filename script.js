@@ -39,14 +39,20 @@ if (eventCalendar) {
   ];
   const weekdayFmt = new Intl.DateTimeFormat('en-US', { weekday: 'short' });
   const monthFmt = new Intl.DateTimeFormat('en-US', { month: 'short' });
+  const monthLabelFmt = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
+  // Collect every upcoming Saturday/Sunday for the next ~4 months so
+  // guests can plan that far ahead. Always computed from "today", so
+  // this list is never stale no matter when the page loads.
+  const horizonEnd = new Date(today);
+  horizonEnd.setMonth(horizonEnd.getMonth() + 4);
+
   const upcomingWeekendDates = [];
   const cursor = new Date(today);
-  // Walk forward day by day until we've collected 6 upcoming Sat/Sun dates.
-  while (upcomingWeekendDates.length < 6) {
+  while (cursor < horizonEnd) {
     const day = cursor.getDay();
     if (day === 0 || day === 6) {
       upcomingWeekendDates.push(new Date(cursor));
@@ -54,14 +60,40 @@ if (eventCalendar) {
     cursor.setDate(cursor.getDate() + 1);
   }
 
-  eventCalendar.innerHTML = upcomingWeekendDates
-    .map((date, i) => `
-      <div class="calendar-card">
-        <span class="cal-weekday">${weekdayFmt.format(date)}</span>
-        <span class="cal-day">${date.getDate()}</span>
-        <span class="cal-month">${monthFmt.format(date)}</span>
-        <span class="cal-activity">${activities[i % activities.length]}</span>
-      </div>
-    `)
+  // Group into month sections so the calendar reads as a scannable
+  // list rather than one giant scrolling row.
+  const monthGroups = [];
+  upcomingWeekendDates.forEach((date, i) => {
+    const label = monthLabelFmt.format(date);
+    let group = monthGroups.find((g) => g.label === label);
+    if (!group) {
+      group = { label, dates: [] };
+      monthGroups.push(group);
+    }
+    group.dates.push({ date, activity: activities[i % activities.length] });
+  });
+
+  eventCalendar.innerHTML = monthGroups
+    .map(
+      (group) => `
+        <div class="calendar-month">
+          <p class="calendar-month-label">${group.label}</p>
+          <div class="calendar-strip">
+            ${group.dates
+              .map(
+                ({ date, activity }) => `
+                  <div class="calendar-card">
+                    <span class="cal-weekday">${weekdayFmt.format(date)}</span>
+                    <span class="cal-day">${date.getDate()}</span>
+                    <span class="cal-month">${monthFmt.format(date)}</span>
+                    <span class="cal-activity">${activity}</span>
+                  </div>
+                `
+              )
+              .join('')}
+          </div>
+        </div>
+      `
+    )
     .join('');
 }

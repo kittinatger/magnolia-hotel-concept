@@ -531,17 +531,28 @@ h3{font-size:1.5rem;}
 }
 
 .calendar-block{margin-top:72px;}
-.calendar-heading{margin-bottom:32px;}
+.calendar-heading{margin-bottom:8px;}
+.calendar-note{color:var(--ink-soft); margin-bottom:40px;}
+.calendar-month{margin-bottom:44px;}
+.calendar-month:last-child{margin-bottom:0;}
+.calendar-month-label{
+  font-size:0.8rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--forest);
+  font-weight:500;
+  text-align:center;
+  margin:0 0 18px;
+}
 .calendar-strip{
   display:flex;
+  flex-wrap:wrap;
   gap:16px;
-  overflow-x:auto;
-  padding:4px 4px 12px;
-  scroll-snap-type:x proximity;
+  justify-content:center;
+  padding:4px;
 }
 .calendar-card{
   flex:0 0 auto;
-  scroll-snap-align:start;
   width:150px;
   background:var(--white);
   border:1px solid rgba(31,59,44,0.12);
