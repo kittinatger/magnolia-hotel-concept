@@ -90,6 +90,14 @@ if (eventModal) {
     pill.addEventListener('click', () => openInfoModal('Weekend Event', name, [desc, detail, facts]));
   });
 
+  document.querySelectorAll('.ground-item[data-desc]').forEach((item) => {
+    const title = item.querySelector('h3').textContent;
+    const desc = item.dataset.desc;
+    const detail = item.dataset.detail;
+    const facts = (item.dataset.facts || '').split('|').filter(Boolean);
+    item.addEventListener('click', () => openInfoModal('The Grounds', title, [desc, detail, facts]));
+  });
+
   const seasonExtras = {
     Summer: {
       intro: 'Long days on the water and in the pines — Magnolia’s busiest, brightest season, with warm afternoons and cool evenings on the lake.',
