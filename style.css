@@ -379,6 +379,23 @@ h3{font-size:1.5rem;}
 .ground-item h3{font-size:1.15rem; margin-bottom:10px;}
 .ground-item p{color:rgba(250,246,238,0.72); font-size:0.92rem; margin:0;}
 
+/* Sustainability */
+.sustainability{padding:100px 0; background:var(--cream);}
+.sustain-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:24px;
+  margin-top:56px;
+}
+.sustain-item{
+  padding:30px 24px;
+  background:var(--cream-2);
+  border-radius:var(--radius);
+  text-align:center;
+}
+.sustain-item h3{font-size:1.1rem; margin-bottom:10px;}
+.sustain-item p{color:var(--ink-soft); font-size:0.92rem; margin:0;}
+
 /* Weddings */
 .weddings{padding:100px 0; background:var(--cream-2);}
 .weddings-inner{max-width:760px; margin:0 auto;}
@@ -649,18 +666,13 @@ h3{font-size:1.5rem;}
   font-weight:700;
   font-size:2.4rem;
   color:var(--forest-dark);
+  margin-bottom:28px;
 }
 .membership-period{
   font-family:var(--sans);
   font-size:1rem;
   font-weight:400;
   color:var(--ink-soft);
-}
-.membership-price-usd{
-  display:block;
-  font-size:0.85rem;
-  color:var(--ink-soft);
-  margin:4px 0 28px;
 }
 .membership-benefits{
   list-style:none;
@@ -775,6 +787,7 @@ h3{font-size:1.5rem;}
   .room-tiers{grid-template-columns:1fr;}
   .season-grid{grid-template-columns:repeat(2, 1fr);}
   .grounds-grid{grid-template-columns:repeat(2, 1fr);}
+  .sustain-grid{grid-template-columns:repeat(2, 1fr);}
   .location-grid{grid-template-columns:1fr;}
   .contact-grid{grid-template-columns:1fr;}
 }
@@ -782,6 +795,7 @@ h3{font-size:1.5rem;}
   .buildings-grid{grid-template-columns:1fr;}
   .season-grid{grid-template-columns:1fr;}
   .grounds-grid{grid-template-columns:1fr;}
+  .sustain-grid{grid-template-columns:1fr;}
   .contact-form{padding:28px;}
 }
 
