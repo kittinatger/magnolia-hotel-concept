@@ -161,6 +161,15 @@ if (eventModal) {
     item.addEventListener('click', () => openInfoModal('Sustainability', title, [desc, detail, facts]));
   });
 
+  document.querySelectorAll('.activity-item[data-desc]').forEach((item) => {
+    const title = item.querySelector('h4').textContent;
+    const category = item.closest('.activity-category').querySelector('.activity-category-title').textContent;
+    const desc = item.dataset.desc;
+    const detail = item.dataset.detail;
+    const facts = (item.dataset.facts || '').split('|').filter(Boolean);
+    item.addEventListener('click', () => openInfoModal(category, title, [desc, detail, facts]));
+  });
+
   const seasonExtras = {
     Summer: {
       intro: 'Long days on the water and in the pines — Magnolia’s busiest, brightest season, with warm afternoons and cool evenings on the lake.',
