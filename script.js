@@ -30,88 +30,21 @@ if (contactForm) {
   });
 }
 
-const eventModal = document.getElementById('eventModal');
-const eventInfo = {};
-if (eventModal) {
-  const modalEyebrow = document.getElementById('eventModalEyebrow');
-  const modalTitle = document.getElementById('eventModalTitle');
-  const modalBody = document.getElementById('eventModalBody');
-  let lastFocused = null;
-
-  // body can be a plain string (rendered as one paragraph) or an
-  // array of strings (rendered as a bullet list) — covers both the
-  // one-line event descriptions and the season/room detail lists.
-  const openInfoModal = (eyebrow, title, body) => {
-    modalEyebrow.textContent = eyebrow || '';
-    modalTitle.textContent = title;
-    modalBody.innerHTML = '';
-    if (Array.isArray(body)) {
-      const ul = document.createElement('ul');
-      ul.className = 'event-modal-list';
-      body.forEach((line) => {
-        const li = document.createElement('li');
-        li.textContent = line;
-        ul.appendChild(li);
-      });
-      modalBody.appendChild(ul);
-    } else {
-      const p = document.createElement('p');
-      p.textContent = body || '';
-      modalBody.appendChild(p);
-    }
-    lastFocused = document.activeElement;
-    eventModal.classList.add('open');
-    eventModal.setAttribute('aria-hidden', 'false');
-    eventModal.querySelector('.event-modal-close').focus();
-  };
-
-  const closeEventModal = () => {
-    eventModal.classList.remove('open');
-    eventModal.setAttribute('aria-hidden', 'true');
-    if (lastFocused) lastFocused.focus();
-  };
-
-  eventModal.addEventListener('click', (e) => {
-    if (e.target.hasAttribute('data-close')) closeEventModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && eventModal.classList.contains('open')) closeEventModal();
-  });
-
-  document.querySelectorAll('.event-pill[data-event]').forEach((pill) => {
-    const name = pill.dataset.event;
-    const desc = pill.dataset.desc;
-    eventInfo[name] = desc;
-    pill.addEventListener('click', () => openInfoModal('Weekend Event', name, desc));
-  });
-
-  document.querySelectorAll('.season-card').forEach((card) => {
-    const title = card.querySelector('h3').textContent;
-    const months = card.querySelector('.season-months').textContent;
-    const items = Array.from(card.querySelectorAll('li')).map((li) => li.textContent);
-    card.addEventListener('click', () => openInfoModal(`Season · ${months}`, title, items));
-  });
-
-  document.querySelectorAll('.room-card').forEach((card) => {
-    const title = card.querySelector('h3').textContent;
-    const tag = card.querySelector('.room-tag').textContent;
-    const size = card.querySelector('.room-size').textContent;
-    const desc = card.querySelector('.room-body > p:last-child').textContent;
-    const note = 'Available in all four wings — South, East, North & West — each priced individually.';
-    card.addEventListener('click', () => openInfoModal(tag, title, `${size}\n\n${desc}\n\n${note}`));
-  });
-
-  // Expose so the calendar (built below) can reuse the same modal.
-  window.__openEventModal = (name, desc) => openInfoModal('Weekend Event', name, desc);
-}
-
 const eventCalendar = document.getElementById('eventCalendar');
 if (eventCalendar) {
-  const activities = [
-    'Paddle Boat', 'Fire Dance', 'Traditional Craft Booths', 'Fashion Show',
-    'Traditional Cooking & Baking', 'Art: Paint, Clay & Flower Crafts',
-    'Spa', 'Fishing', 'Animal Watching', 'Mini World — Landmarks of the World'
-  ];
+  const eventPages = {
+    'Paddle Boat': 'paddle-boat.html',
+    'Fire Dance': 'fire-dance.html',
+    'Traditional Craft Booths': 'craft-booths.html',
+    'Fashion Show': 'fashion-show.html',
+    'Traditional Cooking & Baking': 'cooking-baking.html',
+    'Art: Paint, Clay & Flower Crafts': 'art-crafts.html',
+    'Spa': 'spa.html',
+    'Fishing': 'fishing.html',
+    'Animal Watching': 'animal-watching.html',
+    'Mini World — Landmarks of the World': 'mini-world.html'
+  };
+  const activities = Object.keys(eventPages);
   const weekdayFmt = new Intl.DateTimeFormat('en-US', { weekday: 'short' });
   const monthFmt = new Intl.DateTimeFormat('en-US', { month: 'short' });
   const monthLabelFmt = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
@@ -155,12 +88,12 @@ if (eventCalendar) {
         ${group.dates
           .map(
             ({ date, activity }) => `
-              <button type="button" class="calendar-card" data-event="${activity}" data-date="${weekdayFmt.format(date)} ${monthFmt.format(date)} ${date.getDate()}">
+              <a class="calendar-card" href="${eventPages[activity]}">
                 <span class="cal-weekday">${weekdayFmt.format(date)}</span>
                 <span class="cal-day">${date.getDate()}</span>
                 <span class="cal-month">${monthFmt.format(date)}</span>
                 <span class="cal-activity">${activity}</span>
-              </button>
+              </a>
             `
           )
           .join('')}
@@ -179,17 +112,6 @@ if (eventCalendar) {
     : '';
 
   eventCalendar.innerHTML = `<div class="calendar-months">${monthsHtml}</div>${toggleHtml}`;
-
-  eventCalendar.querySelectorAll('.calendar-card[data-event]').forEach((card) => {
-    card.addEventListener('click', () => {
-      const name = card.dataset.event;
-      const desc = eventInfo[name] || '';
-      const date = card.dataset.date;
-      if (window.__openEventModal) {
-        window.__openEventModal(name, date ? `${date} — ${desc}` : desc);
-      }
-    });
-  });
 
   const calendarToggle = document.getElementById('calendarToggle');
   if (calendarToggle) {
