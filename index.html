@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=39">
+<link rel="stylesheet" href="style.css?v=41">
 <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
 </head>
 <body>
@@ -511,11 +511,21 @@
       <p class="eyebrow">Find Us</p>
       <h2>South Lake Tahoe, California</h2>
       <p>Magnolia sits on the edge of the Boundary Waters Canoe Area Wilderness, near Fallen Leaf Lake — a short drive from South Lake Tahoe, surrounded by pine forest and open sky.</p>
-      <ul class="location-facts">
-        <li><strong>Coordinates:</strong> 38.9183777, -120.0436947</li>
-        <li><strong>Grounds:</strong> approx. 500m &times; 700m</li>
-        <li><strong>Land:</strong> 18 acres (45.5 rai)</li>
-      </ul>
+
+      <div class="location-stats">
+        <div class="location-stat">
+          <span class="location-stat-num">18</span>
+          <span class="location-stat-label">Acres of land</span>
+        </div>
+        <div class="location-stat">
+          <span class="location-stat-num">500 &times; 700m</span>
+          <span class="location-stat-label">Grounds</span>
+        </div>
+        <div class="location-stat">
+          <span class="location-stat-num">38.92, -120.04</span>
+          <span class="location-stat-label">Coordinates</span>
+        </div>
+      </div>
 
       <h3 class="location-subhead">Getting Here</h3>
       <ul class="location-facts">
@@ -528,13 +538,23 @@
         <li><strong>Bus &amp; Rail Station:</strong> complimentary pickup on request from the Amtrak &amp; Greyhound station in Truckee</li>
       </ul>
     </div>
-    <div class="location-map">
-      <iframe
-        title="Magnolia location map"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://maps.google.com/maps?q=38.9183777,-120.0436947&z=13&output=embed">
-      </iframe>
+    <div class="location-map-wrap">
+      <div class="location-map">
+        <iframe
+          title="Magnolia location map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=38.9183777,-120.0436947&z=13&output=embed">
+        </iframe>
+        <div class="location-map-badge">
+          <img src="assets/brand/square-logo-green.svg" alt="" class="location-map-badge-icon">
+          <span>
+            <strong>Magnolia</strong>
+            South Lake Tahoe, CA
+          </span>
+        </div>
+      </div>
+      <a class="location-directions" href="https://www.google.com/maps?q=38.9183777,-120.0436947" target="_blank" rel="noopener">Get Directions &rarr;</a>
     </div>
   </div>
 </section>
