@@ -194,10 +194,10 @@ h3{font-size:1.5rem;}
 }
 .hero-mark{
   display:block;
-  height:240px;
-  max-height:240px;
-  width:240px;
-  max-width:240px;
+  height:340px;
+  max-height:340px;
+  width:340px;
+  max-width:340px;
   aspect-ratio:1/1;
   object-fit:contain;
   margin:0 auto 8px;
@@ -222,7 +222,7 @@ h3{font-size:1.5rem;}
 .hero-tagline{
   font-family:var(--serif);
   font-style:italic;
-  font-size:clamp(1.1rem, 2vw, 1.45rem);
+  font-size:clamp(0.9rem, 1.3vw, 1.05rem);
   color:var(--cream-2);
   margin:0 0 42px;
   font-weight:500;
