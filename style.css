@@ -748,21 +748,11 @@ h3{font-size:1.5rem;}
   box-shadow:0 20px 50px rgba(0,0,0,0.3);
   border:1px solid rgba(201,162,75,0.4);
 }
-.location-map::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(155deg, rgba(15,43,36,0.45), rgba(201,162,75,0.12) 60%, rgba(15,43,36,0.35));
-  mix-blend-mode:multiply;
-  pointer-events:none;
-}
 .location-map iframe{
   width:100%;
   height:420px;
   border:0;
   display:block;
-  filter:grayscale(55%) sepia(28%) hue-rotate(-8deg) saturate(0.85) brightness(0.92) contrast(1.05);
-  pointer-events:none;
 }
 .location-map-badge{
   position:absolute;
@@ -792,8 +782,12 @@ h3{font-size:1.5rem;}
   font-weight:600;
   color:var(--forest-dark);
 }
+.location-directions-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
 .location-directions{
-  align-self:flex-start;
   display:inline-flex;
   align-items:center;
   gap:8px;
