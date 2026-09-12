@@ -349,16 +349,19 @@ if (eventCalendar) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // Collect every upcoming Saturday/Sunday for the next ~6 months so
-  // guests can plan that far ahead. Always computed from "today", so
-  // this list is never stale no matter when the page loads. The
-  // calendar shows 3 months ahead by default; "View More Weekends"
-  // extends that to the full 6 months, and "View Fewer Weekends"
-  // collapses back down to 3.
-  const collapsedCutoff = new Date(today);
-  collapsedCutoff.setMonth(collapsedCutoff.getMonth() + 3);
+  // The calendar starts showing just 1 month ahead. Each "View More
+  // Weekends" click steps the visible horizon out by 3 more months,
+  // up to a maximum of 1 year out; at that point the button switches
+  // to "View Fewer Weekends" and resets back to the 1-month view.
+  const horizonSteps = [1, 4, 7, 10, 12];
+  let stepIndex = 0;
+
+  // Collect every upcoming Saturday/Sunday for the full 1-year horizon
+  // up front so stepping through views is just a matter of showing or
+  // hiding month groups — always computed from "today", so this list
+  // is never stale no matter when the page loads.
   const horizonEnd = new Date(today);
-  horizonEnd.setMonth(horizonEnd.getMonth() + 6);
+  horizonEnd.setMonth(horizonEnd.getMonth() + horizonSteps[horizonSteps.length - 1]);
 
   const upcomingWeekendDates = [];
   const cursor = new Date(today);
@@ -403,37 +406,37 @@ if (eventCalendar) {
     </div>
   `;
 
-  // Start collapsed to the next 3 months; later months expand on demand.
-  const monthsHtml = monthGroups
-    .map((group) => monthHtml(group, group.dates[0].date > collapsedCutoff))
-    .join('');
+  const render = () => {
+    const cutoff = new Date(today);
+    cutoff.setMonth(cutoff.getMonth() + horizonSteps[stepIndex]);
+    const atMax = stepIndex === horizonSteps.length - 1;
 
-  const hasMore = monthGroups.some((group) => group.dates[0].date > collapsedCutoff);
-  const toggleHtml = hasMore
-    ? `<button type="button" class="btn btn-ghost calendar-toggle" id="calendarToggle">View More Weekends</button>`
-    : '';
+    const monthsHtml = monthGroups
+      .map((group) => monthHtml(group, group.dates[0].date > cutoff))
+      .join('');
 
-  eventCalendar.innerHTML = `<div class="calendar-months">${monthsHtml}</div>${toggleHtml}`;
+    const toggleHtml = `<button type="button" class="btn btn-ghost calendar-toggle" id="calendarToggle">${
+      atMax ? 'View Fewer Weekends' : 'View More Weekends'
+    }</button>`;
 
-  eventCalendar.querySelectorAll('.calendar-card[data-event]').forEach((card) => {
-    card.addEventListener('click', () => {
-      const name = card.dataset.event;
-      const desc = eventInfo[name] || '';
-      const date = card.dataset.date;
-      if (window.__openEventModal) {
-        window.__openEventModal(name, date ? `${date} — ${desc}` : desc);
-      }
-    });
-  });
+    eventCalendar.innerHTML = `<div class="calendar-months">${monthsHtml}</div>${toggleHtml}`;
 
-  const calendarToggle = document.getElementById('calendarToggle');
-  if (calendarToggle) {
-    calendarToggle.addEventListener('click', () => {
-      const expanded = eventCalendar.classList.toggle('calendar-expanded');
-      eventCalendar.querySelectorAll('.calendar-extra').forEach((el) => {
-        el.hidden = !expanded;
+    eventCalendar.querySelectorAll('.calendar-card[data-event]').forEach((card) => {
+      card.addEventListener('click', () => {
+        const name = card.dataset.event;
+        const desc = eventInfo[name] || '';
+        const date = card.dataset.date;
+        if (window.__openEventModal) {
+          window.__openEventModal(name, date ? `${date} — ${desc}` : desc);
+        }
       });
-      calendarToggle.textContent = expanded ? 'View Fewer Weekends' : 'View More Weekends';
     });
-  }
+
+    document.getElementById('calendarToggle').addEventListener('click', () => {
+      stepIndex = atMax ? 0 : stepIndex + 1;
+      render();
+    });
+  };
+
+  render();
 }
