@@ -448,6 +448,11 @@ if (eventCalendar) {
     document.getElementById('calendarFewer')?.addEventListener('click', () => {
       stepIndex -= 1;
       render();
+      // Collapsing removes months of content above the buttons, which
+      // would otherwise leave the page scrolled past whatever now
+      // follows the calendar. Scroll the toggles back into view so
+      // guests land where they were, not further down the page.
+      document.querySelector('.calendar-toggles')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   };
 
