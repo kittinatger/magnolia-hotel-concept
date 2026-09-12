@@ -194,14 +194,23 @@ h3{font-size:1.5rem;}
 }
 .hero-mark{
   display:block;
-  height:64px;
-  max-height:64px;
-  width:64px;
-  max-width:64px;
+  height:240px;
+  max-height:240px;
+  width:240px;
+  max-width:240px;
   aspect-ratio:1/1;
   object-fit:contain;
-  margin:0 auto 24px;
-  opacity:0.92;
+  margin:0 auto 8px;
+  opacity:0.96;
+}
+.visually-hidden{
+  position:absolute;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
 }
 .hero .eyebrow{color:var(--gold-light);}
 .hero h1{
