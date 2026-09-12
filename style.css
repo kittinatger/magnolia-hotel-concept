@@ -307,6 +307,62 @@ h3{font-size:1.5rem;}
 .building-card h3{margin:24px 0 8px;}
 .building-card p{color:var(--ink-soft); font-size:0.95rem; padding-bottom:26px;}
 
+/* Grounds */
+.grounds{padding:120px 0; background:var(--forest-dark);}
+.grounds h2, .grounds h3{color:var(--white);}
+.grounds .section-sub{color:rgba(250,246,238,0.72);}
+.grounds-plan{
+  display:flex;
+  justify-content:center;
+  margin:56px 0 64px;
+}
+.grounds-mandala{
+  width:100%;
+  max-width:440px;
+  height:auto;
+}
+.petal{
+  fill:rgba(201,162,75,0.1);
+  stroke:var(--gold-light);
+  stroke-width:2;
+}
+.petal-labels text{
+  fill:rgba(250,246,238,0.55);
+  font-family:var(--sans);
+  font-size:13px;
+  letter-spacing:0.18em;
+}
+.atrium-ring{
+  fill:rgba(250,246,238,0.03);
+  stroke:rgba(250,246,238,0.35);
+  stroke-width:1.5;
+  stroke-dasharray:4 5;
+}
+.atrium-bloom path{fill:var(--blush); opacity:0.9;}
+.atrium-bloom circle{fill:var(--gold);}
+.atrium-label{
+  fill:rgba(250,246,238,0.85);
+  font-family:var(--sans);
+  font-size:11px;
+  letter-spacing:0.14em;
+  transform:translateY(58px);
+}
+.grounds-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:24px;
+}
+.ground-item{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius);
+  padding:26px 24px;
+  transition:background .3s ease, border-color .3s ease;
+}
+.ground-item:hover{background:rgba(255,255,255,0.07); border-color:rgba(201,162,75,0.5);}
+.ground-item h3{font-size:1.15rem; margin-bottom:10px;}
+.ground-item p{color:rgba(250,246,238,0.72); font-size:0.92rem; margin:0;}
+
 /* Rooms */
 .rooms{padding:120px 0; background:var(--cream);}
 .room-tiers{
@@ -542,12 +598,14 @@ h3{font-size:1.5rem;}
   .buildings-grid{grid-template-columns:repeat(2, 1fr);}
   .room-tiers{grid-template-columns:1fr;}
   .season-grid{grid-template-columns:repeat(2, 1fr);}
+  .grounds-grid{grid-template-columns:repeat(2, 1fr);}
   .location-grid{grid-template-columns:1fr;}
   .contact-grid{grid-template-columns:1fr;}
 }
 @media (max-width:560px){
   .buildings-grid{grid-template-columns:1fr;}
   .season-grid{grid-template-columns:1fr;}
+  .grounds-grid{grid-template-columns:1fr;}
   .allyear-banner{padding:36px 24px;}
   .contact-form{padding:28px;}
 }
