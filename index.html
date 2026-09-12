@@ -5,10 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Magnolia | South Lake Tahoe</title>
 <meta name="description" content="Magnolia — the heritage of Asia and the spirit of America, united by the essence of Magnolia. A resort near Fallen Leaf Lake, South Lake Tahoe, California." />
+<link rel="canonical" href="https://kittinatger.github.io/magnolia-hotel-concept/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Magnolia" />
+<meta property="og:title" content="Magnolia | South Lake Tahoe" />
+<meta property="og:description" content="The heritage of Asia and the spirit of America, united by the essence of Magnolia. A resort near Fallen Leaf Lake, South Lake Tahoe, California." />
+<meta property="og:url" content="https://kittinatger.github.io/magnolia-hotel-concept/" />
+<meta property="og:image" content="https://kittinatger.github.io/magnolia-hotel-concept/assets/brand/square-logo-green.svg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Magnolia | South Lake Tahoe" />
+<meta name="twitter:description" content="The heritage of Asia and the spirit of America, united by the essence of Magnolia. A resort near Fallen Leaf Lake, South Lake Tahoe, California." />
+<meta name="twitter:image" content="https://kittinatger.github.io/magnolia-hotel-concept/assets/brand/square-logo-green.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "Magnolia",
+  "description": "A resort inspired by the heritage of Asia and the spirit of America, near Fallen Leaf Lake in South Lake Tahoe, California.",
+  "url": "https://kittinatger.github.io/magnolia-hotel-concept/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "South Lake Tahoe",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.9183777,
+    "longitude": -120.0436947
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
 </head>
 <body>
@@ -85,26 +116,30 @@
     <p class="eyebrow center">The Four Directions</p>
     <h2 class="center">Four Buildings, Four Regions of Asia</h2>
     <div class="buildings-grid">
-      <article class="building-card">
+      <a href="south.html" class="building-card">
         <div class="building-media building-south"></div>
         <h3>South</h3>
         <p>Warm, tropical, and lush — inspired by the coastlines and gardens of Southeast Asia.</p>
-      </article>
-      <article class="building-card">
+        <span class="building-link-cue">Explore South Wing &rarr;</span>
+      </a>
+      <a href="east.html" class="building-card">
         <div class="building-media building-east"></div>
         <h3>East</h3>
         <p>Refined minimalism and quiet ceremony, drawn from East Asian design traditions.</p>
-      </article>
-      <article class="building-card">
+        <span class="building-link-cue">Explore East Wing &rarr;</span>
+      </a>
+      <a href="north.html" class="building-card">
         <div class="building-media building-north"></div>
         <h3>North</h3>
         <p>Bold color and craft, echoing the mountain cultures of North and Central Asia.</p>
-      </article>
-      <article class="building-card">
+        <span class="building-link-cue">Explore North Wing &rarr;</span>
+      </a>
+      <a href="west.html" class="building-card">
         <div class="building-media building-west"></div>
         <h3>West</h3>
         <p>Spice-route warmth and intricate pattern, inspired by South &amp; West Asia.</p>
-      </article>
+        <span class="building-link-cue">Explore West Wing &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -295,6 +330,12 @@
       <div class="event-pill">Animal Watching</div>
       <div class="event-pill">Mini World — Landmarks of the World</div>
     </div>
+
+    <div class="calendar-block">
+      <p class="eyebrow center">Upcoming Weekends</p>
+      <h3 class="center calendar-heading">Plan Your Visit</h3>
+      <div class="calendar-strip" id="eventCalendar" aria-live="polite"></div>
+    </div>
   </div>
 </section>
 
@@ -364,6 +405,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>
