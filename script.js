@@ -105,6 +105,7 @@ if (eventModal) {
     'Restaurant': { cta: 'Reserve a Table', countLabel: 'Guests' },
     'Indoor Activity Hall': { cta: 'Reserve Activity Hall Time', countLabel: 'Guests' },
     'Art Gallery': { cta: 'Reserve a Gallery Visit', countLabel: 'Guests' },
+    'Pool, Sauna & Onsen': { cta: 'Reserve Pool & Onsen Time', countLabel: 'Guests' },
     'Grounds & Parking': { cta: 'Reserve Parking', countLabel: 'Vehicles' }
   };
 
