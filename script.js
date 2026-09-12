@@ -349,19 +349,23 @@ if (eventCalendar) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // The calendar starts showing just 1 month ahead. Each "View More
-  // Weekends" click steps the visible horizon out by 3 more months,
-  // up to a maximum of 1 year out; at that point the button switches
-  // to "View Fewer Weekends" and resets back to the 1-month view.
-  const horizonSteps = [1, 4, 7, 10, 12];
+  // The calendar starts showing just the current month. Each "View
+  // More Weekends" click steps the visible horizon out by 3 more
+  // calendar months, up to a maximum of 1 year from today; at that
+  // point the button switches to "View Fewer Weekends" and resets
+  // back to the current-month-only view.
+  const monthAnchor = new Date(today.getFullYear(), today.getMonth(), 1);
+  const horizonEnd = new Date(today);
+  horizonEnd.setMonth(horizonEnd.getMonth() + 12);
+  const stepCutoffs = [0, 1, 2, 3].map(
+    (i) => new Date(monthAnchor.getFullYear(), monthAnchor.getMonth() + 1 + i * 3, 0)
+  ).concat(horizonEnd);
   let stepIndex = 0;
 
   // Collect every upcoming Saturday/Sunday for the full 1-year horizon
   // up front so stepping through views is just a matter of showing or
   // hiding month groups — always computed from "today", so this list
   // is never stale no matter when the page loads.
-  const horizonEnd = new Date(today);
-  horizonEnd.setMonth(horizonEnd.getMonth() + horizonSteps[horizonSteps.length - 1]);
 
   const upcomingWeekendDates = [];
   const cursor = new Date(today);
@@ -407,9 +411,8 @@ if (eventCalendar) {
   `;
 
   const render = () => {
-    const cutoff = new Date(today);
-    cutoff.setMonth(cutoff.getMonth() + horizonSteps[stepIndex]);
-    const atMax = stepIndex === horizonSteps.length - 1;
+    const cutoff = stepCutoffs[stepIndex];
+    const atMax = stepIndex === stepCutoffs.length - 1;
 
     const monthsHtml = monthGroups
       .map((group) => monthHtml(group, group.dates[0].date > cutoff))
