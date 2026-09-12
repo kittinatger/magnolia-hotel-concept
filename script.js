@@ -328,11 +328,7 @@ if (eventModal) {
 
 const eventCalendar = document.getElementById('eventCalendar');
 if (eventCalendar) {
-  const activities = [
-    'Paddle Boat', 'Fire Dance', 'Traditional Craft Booths', 'Fashion Show',
-    'Traditional Cooking & Baking', 'Art: Paint, Clay & Flower Crafts',
-    'Spa', 'Fishing', 'Animal Watching', 'Mini World — Landmarks of the World'
-  ];
+  const activities = ['Fire Dance', 'Fashion Show', 'Community Space'];
   const weekdayFmt = new Intl.DateTimeFormat('en-US', { weekday: 'short' });
   const monthFmt = new Intl.DateTimeFormat('en-US', { month: 'short' });
   const monthLabelFmt = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
