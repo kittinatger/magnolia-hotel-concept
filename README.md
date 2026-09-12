@@ -42,18 +42,6 @@ No build tooling, no framework — just:
 
 Fonts: [Fraunces](https://fonts.google.com/specimen/Fraunces) (serif) and [Jost](https://fonts.google.com/specimen/Jost) (sans-serif) via Google Fonts.
 
-## Running locally
-
-No build step required — clone and open, or serve the directory with any static file server:
-
-```bash
-git clone https://github.com/kittinatger/magnolia-hotel-concept.git
-cd magnolia-hotel-concept
-npx serve .
-```
-
-Then open the local URL it prints in your browser.
-
 ## Deployment
 
 The site is deployed via GitHub Pages directly from this repository at:
