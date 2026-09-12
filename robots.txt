@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kittinatger.github.io/magnolia-hotel-concept/sitemap.xml

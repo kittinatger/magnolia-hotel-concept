@@ -30,6 +30,16 @@ if (contactForm) {
   });
 }
 
+const newsletterForm = document.getElementById('newsletterForm');
+if (newsletterForm) {
+  const newsletterNote = document.getElementById('newsletterNote');
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    newsletterNote.textContent = 'Thanks for your interest — this is a demo, so no email was sent.';
+    newsletterForm.reset();
+  });
+}
+
 const eventModal = document.getElementById('eventModal');
 const eventInfo = {};
 if (eventModal) {
@@ -181,6 +191,60 @@ if (eventModal) {
     'Resort Villas & Bungalows': ['Private plunge pool or Jacuzzi', 'Dedicated outdoor seating', 'Sun deck among the pines', 'Expansive indoor-outdoor flow']
   };
 
+  const appendRoomBookingForm = (title) => {
+    const cta = `Reserve ${title}`;
+
+    modalBody.appendChild(document.createElement('hr')).className = 'modal-divider';
+
+    const wrap = document.createElement('div');
+    wrap.className = 'booking-form-wrap';
+    wrap.innerHTML = `
+      <p class="booking-form-label">${cta}</p>
+      <form class="booking-form">
+        <label>Name<input type="text" name="name" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Check-in<input type="date" name="checkin" required></label>
+        <label>Check-out<input type="date" name="checkout" required></label>
+        <label>Guests<input type="number" name="count" min="1" value="2" required></label>
+        <label>Wing Preference
+          <select name="wing">
+            <option value="">No preference</option>
+            <option value="South">South</option>
+            <option value="East">East</option>
+            <option value="North">North</option>
+            <option value="West">West</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn-primary">${cta}</button>
+        <p class="booking-note"></p>
+      </form>
+    `;
+    modalBody.appendChild(wrap);
+
+    const today = new Date().toISOString().split('T')[0];
+    const checkinInput = wrap.querySelector('input[name="checkin"]');
+    const checkoutInput = wrap.querySelector('input[name="checkout"]');
+    checkinInput.min = today;
+    checkoutInput.min = today;
+    checkinInput.addEventListener('change', () => {
+      if (!checkinInput.value) return;
+      const nextDay = new Date(checkinInput.value);
+      nextDay.setDate(nextDay.getDate() + 1);
+      checkoutInput.min = nextDay.toISOString().split('T')[0];
+      if (checkoutInput.value && checkoutInput.value <= checkinInput.value) {
+        checkoutInput.value = checkoutInput.min;
+      }
+    });
+
+    const form = wrap.querySelector('form');
+    const note = wrap.querySelector('.booking-note');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      note.textContent = 'Thank you — this is a demo reservation and hasn’t been sent. Our team will follow up by email once bookings go live.';
+      form.reset();
+    });
+  };
+
   document.querySelectorAll('.room-card').forEach((card) => {
     const title = card.querySelector('h3').textContent;
     const tag = card.querySelector('.room-tag').textContent;
@@ -189,7 +253,10 @@ if (eventModal) {
     const desc = card.querySelector('.room-body > p:last-child').textContent;
     const note = 'Available in all four wings — South, East, North & West — each priced individually. Rates vary by wing and season; contact us for exact pricing.';
     const amenities = roomAmenities[title] || [];
-    card.addEventListener('click', () => openInfoModal(tag, title, [size, price, desc, amenities, note]));
+    card.addEventListener('click', () => {
+      openInfoModal(tag, title, [size, price, desc, amenities, note]);
+      appendRoomBookingForm(title);
+    });
   });
 
   const buildingNarratives = {
