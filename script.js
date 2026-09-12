@@ -85,23 +85,42 @@ if (eventModal) {
     const name = pill.dataset.event;
     const desc = pill.dataset.desc;
     const detail = pill.dataset.detail;
+    const facts = (pill.dataset.facts || '').split('|').filter(Boolean);
     eventInfo[name] = detail ? `${desc} ${detail}` : desc;
-    pill.addEventListener('click', () => openInfoModal('Weekend Event', name, [desc, detail]));
+    pill.addEventListener('click', () => openInfoModal('Weekend Event', name, [desc, detail, facts]));
   });
 
-  const seasonIntros = {
-    Summer: 'Long days on the water and in the pines — Magnolia’s busiest, brightest season, with warm afternoons and cool evenings on the lake.',
-    Autumn: 'The mountains turn gold before the first snow, and the crowds thin out — a quieter, slower stretch on the grounds.',
-    Winter: 'The season Magnolia’s North Wing was built for: deep snow, deep quiet, and a fire waiting in every room.',
-    Spring: 'The quietest, greenest season on the grounds, as the wildlife wakes up and the trails empty out.'
+  const seasonExtras = {
+    Summer: {
+      intro: 'Long days on the water and in the pines — Magnolia’s busiest, brightest season, with warm afternoons and cool evenings on the lake.',
+      moment: 'Guests linger longest at golden hour, when the paddle boats come out and the light on Fallen Leaf Lake turns amber.',
+      facts: ['Average highs: 75–85°F (24–29°C)', 'Pack: swimwear, sun hat, insect repellent', 'Signature moment: sunset paddle on the lake']
+    },
+    Autumn: {
+      intro: 'The mountains turn gold before the first snow, and the crowds thin out — a quieter, slower stretch on the grounds.',
+      moment: 'The Honeymoon Bluff trail is at its best here, with the whole valley turning color below the lookout.',
+      facts: ['Average highs: 55–68°F (13–20°C)', 'Pack: layers, waterproof boots', 'Signature moment: sunrise at Honeymoon Bluff']
+    },
+    Winter: {
+      intro: 'The season Magnolia’s North Wing was built for: deep snow, deep quiet, and a fire waiting in every room.',
+      moment: 'Evenings end on the lake, where a cleared rink stays lit for skating long after the ski trails close.',
+      facts: ['Average highs: 25–40°F (-4–4°C)', 'Pack: ski gear, thermal layers', 'Signature moment: ice skating under string lights']
+    },
+    Spring: {
+      intro: 'The quietest, greenest season on the grounds, as the wildlife wakes up and the trails empty out.',
+      moment: 'Otters are most active in the early morning, playing in the shallows just past the lobby dock.',
+      facts: ['Average highs: 50–65°F (10–18°C)', 'Pack: light layers, rain jacket', 'Signature moment: otters at play near the lobby dock']
+    }
   };
 
   document.querySelectorAll('.season-card').forEach((card) => {
     const title = card.querySelector('h3').textContent;
     const months = card.querySelector('.season-months').textContent;
     const items = Array.from(card.querySelectorAll('li')).map((li) => li.textContent);
-    const intro = seasonIntros[title];
-    card.addEventListener('click', () => openInfoModal(`Season · ${months}`, title, [intro, items]));
+    const extra = seasonExtras[title] || {};
+    card.addEventListener('click', () =>
+      openInfoModal(`Season · ${months}`, title, [extra.intro, items, extra.moment, extra.facts])
+    );
   });
 
   const roomAmenities = {
