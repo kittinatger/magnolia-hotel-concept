@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=15">
 <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
 </head>
 <body>
@@ -221,7 +221,7 @@
     <p class="section-sub center">Every building offers the same three tiers of comfort — the difference is which region of Asia welcomes you home.</p>
 
     <div class="room-tiers">
-      <a href="standard-rooms.html" class="room-card">
+      <button type="button" class="room-card">
         <div class="room-media room-standard"></div>
         <div class="room-body">
           <span class="room-tag">Entry-Level Luxury</span>
@@ -229,8 +229,8 @@
           <p class="room-size">37–55 m² &middot; 400–600 sq ft</p>
           <p>A spacious sleeping zone paired with a large premium bathroom — often with a separate soaking tub and rain shower — plus a small indoor lounge or desk area.</p>
         </div>
-      </a>
-      <a href="luxury-suites.html" class="room-card">
+      </button>
+      <button type="button" class="room-card">
         <div class="room-media room-suite"></div>
         <div class="room-body">
           <span class="room-tag">Elevated</span>
@@ -238,8 +238,8 @@
           <p class="room-size">60–100+ m² &middot; 650–1,000+ sq ft</p>
           <p>A distinct, separate living room and private bedroom, enhanced closet space, and an upgraded balcony or terrace for slow mornings.</p>
         </div>
-      </a>
-      <a href="villas-bungalows.html" class="room-card">
+      </button>
+      <button type="button" class="room-card">
         <div class="room-media room-villa"></div>
         <div class="room-body">
           <span class="room-tag">Signature</span>
@@ -247,7 +247,7 @@
           <p class="room-size">100–250+ m² &middot; 1,080–2,700+ sq ft</p>
           <p>Expansive indoor-outdoor living with a private plunge pool or Jacuzzi, a sun deck, and dedicated outdoor seating among the pines.</p>
         </div>
-      </a>
+      </button>
     </div>
 
     <div class="rooms-note">
@@ -262,7 +262,7 @@
     <h2 class="center">Experiences by Season</h2>
 
     <div class="season-grid">
-      <a href="summer.html" class="season-card">
+      <button type="button" class="season-card">
         <h3>Summer</h3>
         <span class="season-months">June – August</span>
         <ul>
@@ -271,8 +271,8 @@
           <li>Hiking in the nearby mountains</li>
           <li>Wild blueberry picking</li>
         </ul>
-      </a>
-      <a href="autumn.html" class="season-card">
+      </button>
+      <button type="button" class="season-card">
         <h3>Autumn</h3>
         <span class="season-months">September – October</span>
         <ul>
@@ -280,8 +280,8 @@
           <li>Hike to Honeymoon Bluff</li>
           <li>Keep a lookout for moose</li>
         </ul>
-      </a>
-      <a href="winter.html" class="season-card">
+      </button>
+      <button type="button" class="season-card">
         <h3>Winter</h3>
         <span class="season-months">December – March</span>
         <ul>
@@ -289,8 +289,8 @@
           <li>Ice fishing on the lake</li>
           <li>Ice skating around the lake</li>
         </ul>
-      </a>
-      <a href="spring.html" class="season-card">
+      </button>
+      <button type="button" class="season-card">
         <h3>Spring</h3>
         <span class="season-months">April – May</span>
         <ul>
@@ -298,7 +298,7 @@
           <li>Spot migrating birds &amp; new offspring</li>
           <li>Peaceful, crowd-free hiking</li>
         </ul>
-      </a>
+      </button>
     </div>
   </div>
 </section>
@@ -310,17 +310,17 @@
     <p class="section-sub center">A living market of Asian tradition, unfolding every weekend on the resort grounds.</p>
 
     <div class="events-grid">
-      <a href="paddle-boat.html" class="event-pill">Paddle Boat</a>
-      <a href="fire-dance.html" class="event-pill">Fire Dance</a>
-      <a href="craft-booths.html" class="event-pill">Traditional Craft Booths</a>
-      <a href="fashion-show.html" class="event-pill">Fashion Show</a>
-      <a href="cooking-baking.html" class="event-pill">Traditional Cooking &amp; Baking</a>
-      <a href="art-crafts.html" class="event-pill">Art: Paint, Clay &amp; Flower Crafts</a>
-      <a href="community-space.html" class="event-pill">Community Space</a>
-      <a href="spa.html" class="event-pill">Spa</a>
-      <a href="fishing.html" class="event-pill">Fishing</a>
-      <a href="animal-watching.html" class="event-pill">Animal Watching</a>
-      <a href="mini-world.html" class="event-pill">Mini World — Landmarks of the World</a>
+      <button type="button" class="event-pill" data-event="Paddle Boat" data-desc="Take a leisurely paddle boat ride across the garden atrium's reflecting pond — a favorite golden-hour activity.">Paddle Boat</button>
+      <button type="button" class="event-pill" data-event="Fire Dance" data-desc="An evening fire dance on the lawn, blending traditional choreography with open flame as the sun goes down.">Fire Dance</button>
+      <button type="button" class="event-pill" data-event="Traditional Craft Booths" data-desc="Browse handmade textiles, pottery, and folk crafts from vendors representing all four of Magnolia's wings.">Traditional Craft Booths</button>
+      <button type="button" class="event-pill" data-event="Fashion Show" data-desc="A runway showcase of traditional dress inspired by South, East, North &amp; West Asia.">Fashion Show</button>
+      <button type="button" class="event-pill" data-event="Traditional Cooking &amp; Baking" data-desc="Watch — and taste — recipes passed down through generations, prepared live by our kitchen team.">Traditional Cooking &amp; Baking</button>
+      <button type="button" class="event-pill" data-event="Art: Paint, Clay &amp; Flower Crafts" data-desc="Hands-on workshops in painting, pottery, and flower crafting, open to guests of all ages.">Art: Paint, Clay &amp; Flower Crafts</button>
+      <button type="button" class="event-pill" data-event="Community Space" data-desc="An open gathering area for games, conversation, and impromptu performances throughout the weekend.">Community Space</button>
+      <button type="button" class="event-pill" data-event="Spa" data-desc="Weekend treatment specials in the Grounds spa, with views out over the property.">Spa</button>
+      <button type="button" class="event-pill" data-event="Fishing" data-desc="Guided fishing along the property's waterways — all gear provided, no experience necessary.">Fishing</button>
+      <button type="button" class="event-pill" data-event="Animal Watching" data-desc="A guided walk to spot the wildlife that calls Magnolia's 18 acres of wilderness home.">Animal Watching</button>
+      <button type="button" class="event-pill" data-event="Mini World — Landmarks of the World" data-desc="A scaled miniature trail of landmarks from around the globe, tucked into the gardens.">Mini World — Landmarks of the World</button>
     </div>
 
     <div class="calendar-block">
@@ -391,6 +391,16 @@
   </div>
 </section>
 
+<div class="event-modal" id="eventModal" aria-hidden="true">
+  <div class="event-modal-backdrop" data-close></div>
+  <div class="event-modal-panel" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
+    <button type="button" class="event-modal-close" data-close aria-label="Close">&times;</button>
+    <p class="eyebrow" id="eventModalEyebrow"></p>
+    <h3 id="eventModalTitle"></h3>
+    <div id="eventModalBody"></div>
+  </div>
+</div>
+
 <footer class="site-footer">
   <div class="container footer-inner">
     <img src="assets/brand/text-logo-white.svg" alt="Magnolia" class="logo-img footer-logo">
@@ -401,6 +411,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=8"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>
