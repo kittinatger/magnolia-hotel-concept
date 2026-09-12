@@ -418,7 +418,7 @@ h3{font-size:1.5rem;}
 .rooms{padding:120px 0; background:var(--cream);}
 .room-tiers{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(4, 1fr);
   gap:32px;
   margin-top:20px;
 }
@@ -442,6 +442,7 @@ h3{font-size:1.5rem;}
 .room-media{height:220px;}
 .room-standard{background:linear-gradient(150deg,#f2ead9,#c9a24b);}
 .room-suite{background:linear-gradient(150deg,#e8c4c4,#1f3b2c);}
+.room-family{background:linear-gradient(150deg,#d9e4d3,#3f6b52);}
 .room-villa{background:linear-gradient(150deg,#dcd3bd,#0e1e14);}
 .room-body{padding:30px 28px 34px;}
 .room-tag{
@@ -911,7 +912,7 @@ h3{font-size:1.5rem;}
   .intro-grid{grid-template-columns:1fr; gap:48px;}
   .intro-stats{border-left:none; padding-left:0; border-top:1px solid rgba(31,59,44,0.15); padding-top:32px;}
   .buildings-grid{grid-template-columns:repeat(2, 1fr);}
-  .room-tiers{grid-template-columns:1fr;}
+  .room-tiers{grid-template-columns:repeat(2, 1fr);}
   .season-grid{grid-template-columns:repeat(2, 1fr);}
   .grounds-grid{grid-template-columns:repeat(2, 1fr);}
   .sustain-grid{grid-template-columns:repeat(2, 1fr);}
@@ -921,6 +922,7 @@ h3{font-size:1.5rem;}
 }
 @media (max-width:560px){
   .buildings-grid{grid-template-columns:1fr;}
+  .room-tiers{grid-template-columns:1fr;}
   .season-grid{grid-template-columns:1fr;}
   .grounds-grid{grid-template-columns:1fr;}
   .sustain-grid{grid-template-columns:1fr;}

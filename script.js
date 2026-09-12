@@ -206,6 +206,7 @@ if (eventModal) {
   const roomAmenities = {
     'Standard Rooms': ['Premium bathroom with rain shower', 'Separate soaking tub in select rooms', 'Small indoor lounge or desk nook', 'Daily housekeeping'],
     'Luxury Suites': ['Distinct, separate living room', 'Private bedroom with enhanced closets', 'Upgraded balcony or terrace', 'Premium bath amenities'],
+    'Family Room Suite': ['Two connected sleeping areas', 'Second bathroom', 'Kitchenette', 'Extra floor space for kids & extended family'],
     'Resort Villas & Bungalows': ['Private plunge pool or Jacuzzi', 'Dedicated outdoor seating', 'Sun deck among the pines', 'Expansive indoor-outdoor flow']
   };
 
