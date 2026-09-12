@@ -391,11 +391,20 @@ h3{font-size:1.5rem;}
   margin-top:56px;
 }
 .sustain-item{
+  appearance:none;
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  font:inherit;
+  cursor:pointer;
+  border:none;
   padding:30px 24px;
   background:var(--cream-2);
   border-radius:var(--radius);
   text-align:center;
+  transition:background .3s ease;
 }
+.sustain-item:hover{background:#ebe0c9;}
 .sustain-item h3{font-size:1.1rem; margin-bottom:10px;}
 .sustain-item p{color:var(--ink-soft); font-size:0.92rem; margin:0;}
 
