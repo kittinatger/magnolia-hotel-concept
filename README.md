@@ -53,4 +53,4 @@ Magnolia is a fictional concept created for design and development practice. It 
 
 ## Credits
 
-Designed and built by [Kittinat Gerdsri]([https://github.com/kittinatger](https://kittinatger.github.io/kittinat-gerdsri/)).
+Designed and built by [Kittinat Gerdsri](https://kittinatger.github.io/kittinat-gerdsri/).
