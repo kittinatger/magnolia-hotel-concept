@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=15">
 <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
 </head>
 <body>
@@ -221,7 +221,7 @@
     <p class="section-sub center">Every building offers the same three tiers of comfort — the difference is which region of Asia welcomes you home.</p>
 
     <div class="room-tiers">
-      <article class="room-card">
+      <button type="button" class="room-card">
         <div class="room-media room-standard"></div>
         <div class="room-body">
           <span class="room-tag">Entry-Level Luxury</span>
@@ -229,8 +229,8 @@
           <p class="room-size">37–55 m² &middot; 400–600 sq ft</p>
           <p>A spacious sleeping zone paired with a large premium bathroom — often with a separate soaking tub and rain shower — plus a small indoor lounge or desk area.</p>
         </div>
-      </article>
-      <article class="room-card">
+      </button>
+      <button type="button" class="room-card">
         <div class="room-media room-suite"></div>
         <div class="room-body">
           <span class="room-tag">Elevated</span>
@@ -238,8 +238,8 @@
           <p class="room-size">60–100+ m² &middot; 650–1,000+ sq ft</p>
           <p>A distinct, separate living room and private bedroom, enhanced closet space, and an upgraded balcony or terrace for slow mornings.</p>
         </div>
-      </article>
-      <article class="room-card">
+      </button>
+      <button type="button" class="room-card">
         <div class="room-media room-villa"></div>
         <div class="room-body">
           <span class="room-tag">Signature</span>
@@ -247,7 +247,7 @@
           <p class="room-size">100–250+ m² &middot; 1,080–2,700+ sq ft</p>
           <p>Expansive indoor-outdoor living with a private plunge pool or Jacuzzi, a sun deck, and dedicated outdoor seating among the pines.</p>
         </div>
-      </article>
+      </button>
     </div>
 
     <div class="rooms-note">
@@ -262,7 +262,7 @@
     <h2 class="center">Experiences by Season</h2>
 
     <div class="season-grid">
-      <article class="season-card">
+      <button type="button" class="season-card">
         <h3>Summer</h3>
         <span class="season-months">June – August</span>
         <ul>
@@ -271,8 +271,8 @@
           <li>Hiking in the nearby mountains</li>
           <li>Wild blueberry picking</li>
         </ul>
-      </article>
-      <article class="season-card">
+      </button>
+      <button type="button" class="season-card">
         <h3>Autumn</h3>
         <span class="season-months">September – October</span>
         <ul>
@@ -280,8 +280,8 @@
           <li>Hike to Honeymoon Bluff</li>
           <li>Keep a lookout for moose</li>
         </ul>
-      </article>
-      <article class="season-card">
+      </button>
+      <button type="button" class="season-card">
         <h3>Winter</h3>
         <span class="season-months">December – March</span>
         <ul>
@@ -289,8 +289,8 @@
           <li>Ice fishing on the lake</li>
           <li>Ice skating around the lake</li>
         </ul>
-      </article>
-      <article class="season-card">
+      </button>
+      <button type="button" class="season-card">
         <h3>Spring</h3>
         <span class="season-months">April – May</span>
         <ul>
@@ -298,7 +298,7 @@
           <li>Spot migrating birds &amp; new offspring</li>
           <li>Peaceful, crowd-free hiking</li>
         </ul>
-      </article>
+      </button>
     </div>
   </div>
 </section>
@@ -395,9 +395,9 @@
   <div class="event-modal-backdrop" data-close></div>
   <div class="event-modal-panel" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
     <button type="button" class="event-modal-close" data-close aria-label="Close">&times;</button>
-    <p class="eyebrow">Weekend Event</p>
+    <p class="eyebrow" id="eventModalEyebrow"></p>
     <h3 id="eventModalTitle"></h3>
-    <p id="eventModalDesc"></p>
+    <div id="eventModalBody"></div>
   </div>
 </div>
 
@@ -411,6 +411,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>
