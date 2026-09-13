@@ -310,8 +310,32 @@ h3{font-size:1.5rem;}
   transition:transform .35s ease, box-shadow .35s ease;
 }
 .building-card:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(31,59,44,0.12);}
-.building-media{height:190px; position:relative;}
+.building-media{height:190px; position:relative; overflow:hidden;}
 .building-south{background:linear-gradient(160deg,#e8c4c4,#c98a7a);}
+.building-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:buildingPhotoRotate 20s infinite;
+}
+.building-photo:nth-child(1){animation-delay:0s;}
+.building-photo:nth-child(2){animation-delay:5s;}
+.building-photo:nth-child(3){animation-delay:10s;}
+.building-photo:nth-child(4){animation-delay:15s;}
+@keyframes buildingPhotoRotate{
+  0%{opacity:0;}
+  4%{opacity:1;}
+  21%{opacity:1;}
+  25%{opacity:0;}
+  100%{opacity:0;}
+}
+@media (prefers-reduced-motion: reduce){
+  .building-photo{animation:none; opacity:0;}
+  .building-photo:first-child{opacity:1;}
+}
 .building-east{background:linear-gradient(160deg,#dcd3bd,#8e9b7f);}
 .building-north{background:linear-gradient(160deg,#c9a24b,#7a3b2e);}
 .building-west{background:linear-gradient(160deg,#e4c983,#3b5a7a);}
