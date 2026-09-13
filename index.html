@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=44">
+<link rel="stylesheet" href="style.css?v=45">
 <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
 </head>
 <body>
@@ -643,17 +643,39 @@
       </div>
     </div>
     <form class="contact-form" id="contactForm">
-      <p class="contact-form-title">Send an Inquiry</p>
+      <p class="contact-form-title">Request a Reservation</p>
       <label>Name
         <input type="text" name="name" required>
       </label>
       <label>Email
         <input type="email" name="email" required>
       </label>
-      <label>Message
-        <textarea name="message" rows="4" required></textarea>
+      <div class="contact-form-row">
+        <label>Check-in
+          <input type="date" name="checkin" id="contactCheckin" required>
+        </label>
+        <label>Check-out
+          <input type="date" name="checkout" id="contactCheckout" required>
+        </label>
+      </div>
+      <div class="contact-form-row">
+        <label>Guests
+          <input type="number" name="guests" min="1" value="2" required>
+        </label>
+        <label>Wing Preference
+          <select name="wing">
+            <option value="">No preference</option>
+            <option value="South">South</option>
+            <option value="East">East</option>
+            <option value="North">North</option>
+            <option value="West">West</option>
+          </select>
+        </label>
+      </div>
+      <label>Notes &amp; Special Requests
+        <textarea name="message" rows="3"></textarea>
       </label>
-      <button type="submit" class="btn btn-primary">Send Inquiry</button>
+      <button type="submit" class="btn btn-primary">Send Reservation Request</button>
       <p class="form-note" id="formNote"></p>
     </form>
   </div>
@@ -702,6 +724,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=29"></script>
+<script src="script.js?v=30"></script>
 </body>
 </html>

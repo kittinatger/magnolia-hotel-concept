@@ -1006,7 +1006,7 @@ h3{font-size:1.5rem;}
   text-transform:uppercase;
   color:var(--ink-soft);
 }
-.contact-form input, .contact-form textarea{
+.contact-form input, .contact-form textarea, .contact-form select{
   font-family:var(--sans);
   font-size:1rem;
   padding:12px 14px;
@@ -1016,9 +1016,14 @@ h3{font-size:1.5rem;}
   color:var(--ink);
   resize:vertical;
 }
-.contact-form input:focus, .contact-form textarea:focus{
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus{
   outline:none;
   border-color:var(--gold);
+}
+.contact-form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
 }
 .form-note{
   font-size:0.85rem;
@@ -1144,6 +1149,7 @@ h3{font-size:1.5rem;}
   .location-stats{grid-template-columns:1fr; gap:16px;}
   .weddings-stats{grid-template-columns:1fr; gap:16px;}
   .contact-form{padding:28px;}
+  .contact-form-row{grid-template-columns:1fr; gap:18px;}
 }
 
 /* Event modal */

@@ -23,9 +23,24 @@ mainNav.querySelectorAll('a').forEach((link) => {
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   const formNote = document.getElementById('formNote');
+  const contactCheckin = document.getElementById('contactCheckin');
+  const contactCheckout = document.getElementById('contactCheckout');
+  const today = new Date().toISOString().split('T')[0];
+  contactCheckin.min = today;
+  contactCheckout.min = today;
+  contactCheckin.addEventListener('change', () => {
+    if (!contactCheckin.value) return;
+    const nextDay = new Date(contactCheckin.value);
+    nextDay.setDate(nextDay.getDate() + 1);
+    contactCheckout.min = nextDay.toISOString().split('T')[0];
+    if (contactCheckout.value && contactCheckout.value <= contactCheckin.value) {
+      contactCheckout.value = contactCheckout.min;
+    }
+  });
+
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    formNote.textContent = 'Thank you — this is a demo form and does not send a real message yet.';
+    formNote.textContent = 'Thank you — this is a demo reservation request and hasn’t been sent. Our team will follow up by email once bookings go live.';
     contactForm.reset();
   });
 }
