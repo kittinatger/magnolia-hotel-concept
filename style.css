@@ -568,13 +568,26 @@ h3{font-size:1.5rem;}
   height:100%;
   object-fit:cover;
   opacity:0;
-  animation:buildingPhotoRotate5 25s infinite;
 }
-.room-photo:nth-child(1){animation-delay:0s;}
-.room-photo:nth-child(2){animation-delay:5s;}
-.room-photo:nth-child(3){animation-delay:10s;}
-.room-photo:nth-child(4){animation-delay:15s;}
-.room-photo:nth-child(5){animation-delay:20s;}
+/* 5-photo rotation (Standard Rooms): 5s hold each, 25s full cycle */
+.room-standard .room-photo{animation:buildingPhotoRotate5 25s infinite;}
+.room-standard .room-photo:nth-child(1){animation-delay:0s;}
+.room-standard .room-photo:nth-child(2){animation-delay:5s;}
+.room-standard .room-photo:nth-child(3){animation-delay:10s;}
+.room-standard .room-photo:nth-child(4){animation-delay:15s;}
+.room-standard .room-photo:nth-child(5){animation-delay:20s;}
+/* 3-photo rotation (Luxury Suites): 5s hold each, 15s full cycle */
+.room-suite .room-photo{animation:buildingPhotoRotate3 15s infinite;}
+.room-suite .room-photo:nth-child(1){animation-delay:0s;}
+.room-suite .room-photo:nth-child(2){animation-delay:5s;}
+.room-suite .room-photo:nth-child(3){animation-delay:10s;}
+@keyframes buildingPhotoRotate3{
+  0%{opacity:0;}
+  5.3%{opacity:1;}
+  28%{opacity:1;}
+  33.3%{opacity:0;}
+  100%{opacity:0;}
+}
 @media (prefers-reduced-motion: reduce){
   .room-photo{animation:none; opacity:0;}
   .room-photo:first-child{opacity:1;}
