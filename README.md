@@ -18,6 +18,14 @@
 
 The project exists to explore hospitality branding, information architecture, and UI design for a resort with four distinct "wings" (South, East, North, West), each inspired by a different region of Asia, surrounding a shared garden atrium.
 
+## Business Concept
+
+The site is grounded in a full business model canvas covering key partners, activities, resources, value proposition, customer segments, channels, cost structure, and revenue streams:
+
+<p align="center">
+  <img src="assets/docs/business-model-canvas.png" alt="Magnolia business model canvas" width="800">
+</p>
+
 ## Features
 
 - **Four regional buildings** — South, East, North & West wings, each with its own architectural story, clickable for detail
