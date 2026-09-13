@@ -659,19 +659,28 @@
         </label>
       </div>
       <div class="contact-form-row">
+        <label>Room Type
+          <select name="roomType">
+            <option value="">No preference</option>
+            <option value="Standard Rooms">Standard Rooms</option>
+            <option value="Luxury Suites">Luxury Suites</option>
+            <option value="Family Room Suite">Family Room Suite</option>
+            <option value="Resort Villas & Bungalows">Resort Villas &amp; Bungalows</option>
+          </select>
+        </label>
         <label>Guests
           <input type="number" name="guests" min="1" value="2" required>
         </label>
-        <label>Wing Preference
-          <select name="wing">
-            <option value="">No preference</option>
-            <option value="South">South</option>
-            <option value="East">East</option>
-            <option value="North">North</option>
-            <option value="West">West</option>
-          </select>
-        </label>
       </div>
+      <label>Wing Preference
+        <select name="wing">
+          <option value="">No preference</option>
+          <option value="South">South</option>
+          <option value="East">East</option>
+          <option value="North">North</option>
+          <option value="West">West</option>
+        </select>
+      </label>
       <label>Notes &amp; Special Requests
         <textarea name="message" rows="3"></textarea>
       </label>
