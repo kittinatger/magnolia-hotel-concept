@@ -556,11 +556,29 @@ h3{font-size:1.5rem;}
   transition:transform .3s ease, box-shadow .3s ease;
 }
 .room-card:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(31,59,44,0.12);}
-.room-media{height:220px;}
+.room-media{height:220px; position:relative; overflow:hidden;}
 .room-standard{background:linear-gradient(150deg,#f2ead9,#c9a24b);}
 .room-suite{background:linear-gradient(150deg,#e8c4c4,#1f3b2c);}
 .room-family{background:linear-gradient(150deg,#d9e4d3,#3f6b52);}
 .room-villa{background:linear-gradient(150deg,#dcd3bd,#0e1e14);}
+.room-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:buildingPhotoRotate5 25s infinite;
+}
+.room-photo:nth-child(1){animation-delay:0s;}
+.room-photo:nth-child(2){animation-delay:5s;}
+.room-photo:nth-child(3){animation-delay:10s;}
+.room-photo:nth-child(4){animation-delay:15s;}
+.room-photo:nth-child(5){animation-delay:20s;}
+@media (prefers-reduced-motion: reduce){
+  .room-photo{animation:none; opacity:0;}
+  .room-photo:first-child{opacity:1;}
+}
 .room-body{padding:30px 28px 34px;}
 .room-tag{
   font-size:0.7rem;
