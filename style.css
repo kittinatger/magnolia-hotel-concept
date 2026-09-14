@@ -516,12 +516,49 @@ h3{font-size:1.5rem;}
   background:linear-gradient(160deg,#e8c4c4,#c9a24b 55%,#7a3b2e);
   box-shadow:0 20px 50px rgba(31,59,44,0.15);
 }
-.weddings-media-mark{width:72px; height:72px; opacity:0.9;}
+.weddings-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(160deg, rgba(232,196,196,0.55), rgba(201,162,75,0.5) 55%, rgba(122,59,46,0.72));
+  mix-blend-mode:multiply;
+  z-index:1;
+}
+.weddings-media-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:weddingsMediaRotate 30s infinite;
+}
+.weddings-media-photo:nth-child(1){animation-delay:0s;}
+.weddings-media-photo:nth-child(2){animation-delay:5s;}
+.weddings-media-photo:nth-child(3){animation-delay:10s;}
+.weddings-media-photo:nth-child(4){animation-delay:15s;}
+.weddings-media-photo:nth-child(5){animation-delay:20s;}
+.weddings-media-photo:nth-child(6){animation-delay:25s;}
+@keyframes weddingsMediaRotate{
+  0%{opacity:0;}
+  3.3%{opacity:1;}
+  13.3%{opacity:1;}
+  16.7%{opacity:0;}
+  100%{opacity:0;}
+}
+@media (prefers-reduced-motion: reduce){
+  .weddings-media-photo{animation:none; opacity:0;}
+  .weddings-media-photo:first-child{opacity:1;}
+}
+.weddings-media-mark{width:72px; height:72px; opacity:0.9; position:relative; z-index:2;}
 .weddings-media-caption{
+  position:relative;
+  z-index:2;
   text-align:center;
   color:var(--white);
   font-size:0.85rem;
   letter-spacing:0.04em;
+  text-shadow:0 2px 12px rgba(0,0,0,0.35);
 }
 .weddings-media-caption strong{
   display:block;
