@@ -206,10 +206,70 @@ if (eventModal) {
   });
 
   const sustainIcons = {
-    'Solar Power': '<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="10"/><line x1="24" y1="2" x2="24" y2="10"/><line x1="24" y1="38" x2="24" y2="46"/><line x1="2" y1="24" x2="10" y2="24"/><line x1="38" y1="24" x2="46" y2="24"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="33" y1="33" x2="39" y2="39"/><line x1="9" y1="39" x2="15" y2="33"/><line x1="33" y1="15" x2="39" y2="9"/></svg>',
-    'Water Conservation': '<svg viewBox="0 0 48 48"><path d="M24,4 C34,20 40,28 40,34 C40,42 33,46 24,46 C15,46 8,42 8,34 C8,28 14,20 24,4 Z"/></svg>',
-    'Native Landscaping': '<svg viewBox="0 0 48 48"><path d="M8,40 C8,22 22,8 42,8 C42,28 28,40 8,40 Z"/><path d="M10,38 C18,30 26,24 36,16"/></svg>',
-    'Locally Sourced': '<svg viewBox="0 0 48 48"><path d="M10,20 L38,20 L34,42 L14,42 Z"/><path d="M14,20 C14,12 34,12 34,20"/><path d="M24,18 L24,8 M24,12 C19,9 17,4 20,2 C23,4 24,9 24,12 Z"/></svg>'
+    'Solar Power': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="62"/>
+      <g class="ill-line-soft">
+        <line x1="110" y1="12" x2="110" y2="28"/>
+        <line x1="68" y1="24" x2="78" y2="36"/>
+        <line x1="152" y1="24" x2="142" y2="36"/>
+      </g>
+      <path class="ill-solid" d="M50,150 L110,88 L170,150 Z"/>
+      <g class="ill-line">
+        <line x1="70" y1="150" x2="90" y2="108"/>
+        <line x1="90" y1="150" x2="103" y2="108"/>
+        <line x1="110" y1="150" x2="110" y2="108"/>
+        <line x1="130" y1="150" x2="117" y2="108"/>
+        <line x1="150" y1="150" x2="130" y2="108"/>
+        <line x1="60" y1="129" x2="160" y2="129"/>
+      </g>
+      <path class="ill-line-soft" d="M30,180 C60,170 90,186 120,176 C150,166 180,182 210,174"/>
+    </svg>`,
+    'Water Conservation': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="80" r="60"/>
+      <path class="ill-solid" d="M70,90 C56,90 48,78 58,68 C54,54 74,46 86,56 C92,44 116,44 122,58 C138,52 152,66 142,78 C152,84 146,98 132,98 L76,98 C62,98 60,92 70,90 Z"/>
+      <g class="ill-line">
+        <path d="M84,112 C84,120 76,126 76,134 C76,140 82,144 86,140 C90,144 96,140 96,134 C96,126 88,120 88,112 Z"/>
+        <path d="M124,118 C124,126 116,132 116,140 C116,146 122,150 126,146 C130,150 136,146 136,140 C136,132 128,126 128,118 Z"/>
+      </g>
+      <path class="ill-line-soft" d="M30,182 C60,172 90,188 120,178 C150,168 180,184 210,176"/>
+    </svg>`,
+    'Native Landscaping': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="70" r="58"/>
+      <path class="ill-mound" d="M10,190 C50,172 90,196 130,180 C160,168 190,182 210,174 L210,220 L10,220 Z"/>
+      <g class="ill-line" transform="translate(80 150) scale(0.55)">
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(72)"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(144)"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(216)"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(288)"/>
+      </g>
+      <circle class="ill-accent" cx="80" cy="150" r="9"/>
+      <g class="ill-line" transform="translate(142 172) scale(0.32)">
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(72)"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(144)"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(216)"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(288)"/>
+      </g>
+      <circle class="ill-accent" cx="142" cy="172" r="5"/>
+      <g class="ill-line">
+        <ellipse cx="163" cy="112" rx="14" ry="9" transform="rotate(-30 163 112)"/>
+        <ellipse cx="179" cy="122" rx="14" ry="9" transform="rotate(30 179 122)"/>
+        <line x1="171" y1="117" x2="171" y2="124"/>
+      </g>
+    </svg>`,
+    'Locally Sourced': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <path class="ill-solid" d="M58,118 L162,118 L148,188 L72,188 Z"/>
+      <path class="ill-line-soft" d="M72,118 C72,90 148,90 148,118"/>
+      <g class="ill-line">
+        <circle cx="96" cy="108" r="14"/>
+        <line x1="96" y1="98" x2="96" y2="118"/>
+        <line x1="88" y1="106" x2="104" y2="110"/>
+      </g>
+      <path class="ill-line" d="M122,110 C122,96 136,88 150,92 C148,104 136,112 122,110 Z"/>
+      <path class="ill-line" d="M78,108 C78,96 68,88 56,90 C56,100 66,108 78,108 Z"/>
+    </svg>`
   };
   document.querySelectorAll('.sustain-item[data-desc]').forEach((item) => {
     const title = item.querySelector('h3').textContent;
