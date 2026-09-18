@@ -431,13 +431,259 @@ if (eventModal) {
     item.addEventListener('click', () => openInfoModal('Sustainability', title, [desc, detail, facts], sustainIcons[title]));
   });
 
+  const activityIcons = {
+    'Boating & Waterskiing': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="82" r="58"/>
+      <path class="ill-solid" d="M55,148 C55,138 75,132 110,132 C145,132 165,138 165,148 C150,152 90,154 70,152 Z"/>
+      <line class="ill-line" x1="110" y1="132" x2="110" y2="110"/>
+      <path class="ill-line-soft" d="M110,110 L150,118 L110,124 Z"/>
+      <path class="ill-line" d="M165,148 C185,138 200,148 205,160"/>
+      <g class="ill-line-soft">
+        <line x1="200" y1="150" x2="212" y2="146"/>
+        <line x1="196" y1="158" x2="210" y2="156"/>
+      </g>
+      <path class="ill-mound" d="M20,150 C50,140 80,158 110,148 C140,138 170,156 200,146 L200,190 L20,190 Z"/>
+      <path class="ill-line" d="M20,150 C50,140 80,158 110,148 C140,138 170,156 200,146"/>
+    </svg>`,
+    'Sandy Shore Swimming': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <path class="ill-mound" d="M20,140 C50,128 80,148 110,136 C140,124 170,144 200,132 L200,190 L20,190 Z"/>
+      <path class="ill-line" d="M20,140 C50,128 80,148 110,136 C140,124 170,144 200,132"/>
+      <path class="ill-line-soft" d="M40,160 C60,152 80,168 100,160"/>
+      <path class="ill-line-soft" d="M130,168 C150,160 170,176 190,168"/>
+      <g class="ill-accent">
+        <circle cx="70" cy="180" r="4"/>
+        <circle cx="150" cy="182" r="3"/>
+        <circle cx="100" cy="186" r="3.5"/>
+      </g>
+    </svg>`,
+    'Canoeing & Kayaking': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <path class="ill-solid" d="M48,148 C48,140 75,148 110,148 C145,148 172,140 172,148 C160,158 60,158 48,148 Z"/>
+      <path class="ill-line" d="M64,110 L156,146"/>
+      <path class="ill-line" d="M60,104 C54,102 50,106 52,112 C58,114 64,112 64,110 C64,108 62,105 60,104 Z"/>
+      <path class="ill-line" d="M160,140 C166,138 170,142 168,148 C162,150 156,148 156,146 C156,144 158,141 160,140 Z"/>
+      <path class="ill-mound" d="M20,150 C50,140 80,158 110,148 C140,138 170,156 200,146 L200,190 L20,190 Z"/>
+      <path class="ill-line" d="M20,150 C50,140 80,158 110,148 C140,138 170,156 200,146"/>
+    </svg>`,
+    'Stand-Up Paddleboarding': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <ellipse class="ill-solid" cx="110" cy="148" rx="60" ry="14"/>
+      <line class="ill-line" x1="110" y1="134" x2="94" y2="70"/>
+      <path class="ill-line" d="M88,64 C84,58 90,52 96,56 C100,60 98,68 92,70 C90,70 88,68 88,64 Z"/>
+      <path class="ill-mound" d="M20,158 C50,148 80,166 110,156 C140,146 170,164 200,154 L200,190 L20,190 Z"/>
+      <path class="ill-line" d="M20,158 C50,148 80,166 110,156 C140,146 170,164 200,154"/>
+    </svg>`,
+    'Fishing Charters': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="80" r="58"/>
+      <path class="ill-solid" d="M45,150 C45,136 75,128 110,128 C145,128 175,136 175,150 C160,156 60,156 45,150 Z"/>
+      <rect class="ill-line" x="92" y="104" width="30" height="24" rx="3"/>
+      <line class="ill-line" x1="150" y1="128" x2="150" y2="100"/>
+      <path class="ill-line-soft" d="M150,100 L172,106"/>
+      <path class="ill-mound" d="M20,152 C50,142 80,160 110,150 C140,140 170,158 200,148 L200,190 L20,190 Z"/>
+      <path class="ill-line" d="M20,152 C50,142 80,160 110,150 C140,140 170,158 200,148"/>
+    </svg>`,
+    'Fishing': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <line class="ill-line" x1="70" y1="150" x2="130" y2="60"/>
+      <path class="ill-line-soft" d="M130,60 C142,90 148,120 146,150 C146,158 150,164 156,166"/>
+      <path class="ill-line" d="M150,166 C144,172 144,180 150,184 C156,180 156,172 150,166 Z"/>
+      <path class="ill-mound" d="M20,158 C50,148 80,166 110,156 C140,146 170,164 200,154 L200,190 L20,190 Z"/>
+      <path class="ill-line" d="M20,158 C50,148 80,166 110,156 C140,146 170,164 200,154"/>
+    </svg>`,
+    'Paddle Boat': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <path class="ill-solid" d="M50,140 C50,128 75,122 110,122 C145,122 170,128 170,140 C158,148 62,148 50,140 Z"/>
+      <circle class="ill-line" cx="110" cy="160" r="16"/>
+      <g class="ill-line-soft">
+        <line x1="110" y1="144" x2="110" y2="176"/>
+        <line x1="94" y1="160" x2="126" y2="160"/>
+      </g>
+      <path class="ill-mound" d="M20,170 C50,160 80,178 110,168 C140,158 170,176 200,166 L200,190 L20,190 Z"/>
+      <path class="ill-line" d="M20,170 C50,160 80,178 110,168 C140,158 170,176 200,166"/>
+    </svg>`,
+    'Hiking & Nature Walks': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="82" r="58"/>
+      <path class="ill-line" d="M40,190 C60,160 50,130 70,100 C85,78 100,70 120,50"/>
+      <path class="ill-line" d="M150,112 L150,62 M150,58 L130,84 L170,84 Z M150,72 L134,98 L166,98 Z M150,86 L136,110 L164,110 Z"/>
+      <ellipse class="ill-mound" cx="110" cy="196" rx="80" ry="10"/>
+    </svg>`,
+    'Trail Biking': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <g class="ill-line">
+        <circle cx="70" cy="150" r="26"/>
+        <circle cx="150" cy="150" r="26"/>
+        <path d="M70,150 L100,104 L130,104 L150,150 M100,104 L86,150 M100,104 L118,120 L150,150"/>
+      </g>
+      <path class="ill-line-soft" d="M20,188 C60,174 100,196 140,182 C160,176 180,184 200,178"/>
+    </svg>`,
+    'Horseback Trail Rides': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <path class="ill-line" d="M86,156 L86,96 A24,24 0 0 1 134,96 L134,156 L118,156 L118,100 A8,8 0 0 0 102,100 L102,156 Z"/>
+      <g class="ill-accent">
+        <circle cx="92" cy="90" r="3"/>
+        <circle cx="104" cy="74" r="3"/>
+        <circle cx="128" cy="90" r="3"/>
+        <circle cx="116" cy="74" r="3"/>
+      </g>
+      <path class="ill-line-soft" d="M20,188 C60,174 100,196 140,182 C160,176 180,184 200,178"/>
+      <g class="ill-line-soft">
+        <ellipse cx="60" cy="182" rx="8" ry="4"/>
+        <ellipse cx="170" cy="176" rx="8" ry="4"/>
+      </g>
+    </svg>`,
+    'Traditional Craft Booths': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <path class="ill-solid" d="M46,90 L110,56 L174,90 L164,95 C154,84 132,84 122,95 C112,84 108,84 98,95 C88,84 66,84 56,95 Z"/>
+      <g class="ill-line">
+        <line x1="62" y1="93" x2="62" y2="160"/>
+        <line x1="158" y1="93" x2="158" y2="160"/>
+      </g>
+      <path class="ill-line" d="M62,126 L158,126"/>
+      <g class="ill-line-soft">
+        <circle cx="90" cy="112" r="10"/>
+        <path d="M84,112 C84,106 96,106 96,112 C96,118 84,118 84,112 Z"/>
+      </g>
+      <path class="ill-line" d="M120,104 C132,100 144,106 144,116 C144,122 138,120 134,116 C130,120 122,120 120,112 Z"/>
+      <path class="ill-line-soft" d="M30,160 L190,160"/>
+    </svg>`,
+    'Traditional Cooking & Baking': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <g class="ill-line-soft">
+        <path d="M96,60 C90,50 100,42 96,30"/>
+        <path d="M124,60 C118,50 128,42 124,30"/>
+      </g>
+      <path class="ill-solid" d="M64,120 C64,140 84,156 110,156 C136,156 156,140 156,120 Z"/>
+      <path class="ill-line" d="M60,118 L160,118"/>
+      <line class="ill-line" x1="110" y1="118" x2="110" y2="90"/>
+      <path class="ill-line" d="M100,84 C100,78 120,78 120,84 C120,90 100,90 100,84 Z"/>
+    </svg>`,
+    'Art: Paint, Clay & Flower Crafts': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <path class="ill-solid" d="M58,140 C50,118 58,94 82,86 C110,76 140,90 142,116 C144,136 128,148 110,142 C112,150 106,158 96,155 C90,153 88,146 92,140 C78,146 62,146 58,140 Z"/>
+      <g class="ill-accent">
+        <circle cx="82" cy="108" r="6"/>
+        <circle cx="106" cy="104" r="6"/>
+        <circle cx="122" cy="120" r="6"/>
+      </g>
+      <path class="ill-line" d="M142,78 L164,52"/>
+      <path class="ill-line" d="M158,46 C164,42 172,46 170,54 C168,60 160,62 156,56 Z"/>
+      <path class="ill-line" d="M170,150 C170,138 180,132 190,136 C192,144 186,152 176,152 C173,152 171,151 170,150 Z"/>
+    </svg>`,
+    'Spa': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="88" r="58"/>
+      <g class="ill-line-soft">
+        <path d="M92,62 C86,52 96,44 92,32"/>
+        <path d="M110,60 C104,48 116,40 110,26"/>
+        <path d="M128,62 C122,52 132,44 128,32"/>
+      </g>
+      <g class="ill-line">
+        <ellipse cx="110" cy="150" rx="40" ry="13"/>
+        <ellipse cx="110" cy="131" rx="30" ry="11"/>
+        <ellipse cx="110" cy="114" rx="21" ry="9"/>
+      </g>
+      <g class="ill-line-soft">
+        <ellipse cx="110" cy="168" rx="56" ry="8"/>
+        <ellipse cx="110" cy="180" rx="70" ry="8"/>
+      </g>
+    </svg>`,
+    'Animal Watching': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <g class="ill-line">
+        <circle cx="90" cy="90" r="16"/>
+        <circle cx="130" cy="90" r="16"/>
+        <path d="M90,90 C90,80 96,74 106,74 L114,74 C124,74 130,80 130,90"/>
+        <line x1="106" y1="74" x2="106" y2="64"/>
+        <line x1="114" y1="74" x2="114" y2="64"/>
+      </g>
+      <path class="ill-line" d="M60,150 C56,120 70,100 60,70"/>
+      <path class="ill-line" d="M150,112 L150,62 M150,58 L130,84 L170,84 Z M150,72 L134,98 L166,98 Z M150,86 L136,110 L164,110 Z"/>
+      <ellipse class="ill-mound" cx="110" cy="188" rx="70" ry="9"/>
+    </svg>`,
+    'Manatee Watching Tours': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="88" r="58"/>
+      <path class="ill-solid" d="M50,130 C46,110 60,96 86,94 C104,92 118,98 132,108 C148,118 160,116 168,124 C160,134 146,134 134,128 C122,138 100,142 80,138 C62,134 52,146 50,130 Z"/>
+      <circle class="ill-line-soft" cx="70" cy="114" r="3"/>
+      <path class="ill-mound" d="M20,150 C50,140 80,158 110,148 C140,138 170,156 200,146 L200,190 L20,190 Z"/>
+      <path class="ill-line" d="M20,150 C50,140 80,158 110,148 C140,138 170,156 200,146"/>
+    </svg>`,
+    'Airboat Swamp Tours': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <path class="ill-solid" d="M50,150 C50,140 75,134 110,134 C145,134 170,140 170,150 C155,156 65,156 50,150 Z"/>
+      <circle class="ill-line" cx="175" cy="120" r="26"/>
+      <g class="ill-line-soft">
+        <line x1="175" y1="94" x2="175" y2="146"/>
+        <line x1="149" y1="120" x2="201" y2="120"/>
+      </g>
+      <g class="ill-line-soft">
+        <path d="M30,160 L34,140"/>
+        <path d="M42,160 L46,138"/>
+        <path d="M54,160 L58,142"/>
+      </g>
+      <path class="ill-mound" d="M20,158 C50,148 80,166 110,156 C140,146 170,164 200,154 L200,190 L20,190 Z"/>
+    </svg>`,
+    'Lantern Boat Cruise': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <path class="ill-solid" d="M55,148 C55,138 75,132 110,132 C145,132 165,138 165,148 C150,152 90,154 70,152 Z"/>
+      <line class="ill-line" x1="80" y1="132" x2="80" y2="100"/>
+      <path class="ill-line" d="M72,84 L88,84 L88,104 L72,104 Z"/>
+      <circle class="ill-accent" cx="80" cy="94" r="4"/>
+      <g class="ill-line-soft">
+        <circle cx="150" cy="50" r="3"/>
+        <circle cx="165" cy="66" r="2"/>
+        <circle cx="60" cy="56" r="2"/>
+      </g>
+      <path class="ill-mound" d="M20,150 C50,140 80,158 110,148 C140,138 170,156 200,146 L200,190 L20,190 Z"/>
+      <path class="ill-line" d="M20,150 C50,140 80,158 110,148 C140,138 170,156 200,146"/>
+    </svg>`,
+    'Migratory Bird Walks': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="80" r="58"/>
+      <g class="ill-line">
+        <path d="M64,66 Q78,54 92,66"/>
+        <path d="M104,46 Q118,34 132,46"/>
+        <path d="M124,74 Q138,62 152,74"/>
+      </g>
+      <g class="ill-line">
+        <circle cx="94" cy="140" r="18"/>
+        <circle cx="134" cy="140" r="18"/>
+        <path d="M94,140 C94,128 102,120 114,120 C126,120 134,128 134,140"/>
+      </g>
+      <path class="ill-line-soft" d="M20,188 C60,174 100,196 140,182 C160,176 180,184 200,178"/>
+    </svg>`,
+    'Cool-Season Fishing': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <line class="ill-line" x1="70" y1="150" x2="130" y2="60"/>
+      <path class="ill-line-soft" d="M130,60 C142,90 148,120 146,150 C146,158 150,164 156,166"/>
+      <path class="ill-line" d="M150,166 C144,172 144,180 150,184 C156,180 156,172 150,166 Z"/>
+      <path class="ill-solid" d="M30,150 L190,150 L190,160 L30,160 Z"/>
+      <g class="ill-line-soft">
+        <line x1="55" y1="150" x2="55" y2="160"/>
+        <line x1="90" y1="150" x2="90" y2="160"/>
+        <line x1="125" y1="150" x2="125" y2="160"/>
+        <line x1="160" y1="150" x2="160" y2="160"/>
+      </g>
+      <path class="ill-mound" d="M30,160 L190,160 L190,190 L30,190 Z"/>
+    </svg>`,
+    'Lakeside Bonfire Evenings': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="70" r="50"/>
+      <g class="ill-line-soft">
+        <circle cx="150" cy="40" r="3"/>
+        <circle cx="170" cy="60" r="2"/>
+        <circle cx="60" cy="46" r="2"/>
+      </g>
+      <path class="ill-line" d="M84,166 L136,166 L128,140 L92,140 Z"/>
+      <path class="ill-accent" d="M110,150 C104,138 108,124 116,116 C114,128 122,132 122,140 C122,148 116,152 110,150 Z"/>
+      <path class="ill-line" d="M110,136 C106,128 108,120 114,114 C112,122 118,124 118,130 C118,136 114,138 110,136 Z"/>
+      <path class="ill-mound" d="M20,190 C50,178 80,198 110,186 C140,174 170,194 200,182 L200,212 L20,212 Z"/>
+    </svg>`
+  };
   document.querySelectorAll('.activity-item[data-desc]').forEach((item) => {
     const title = item.querySelector('h4').textContent;
     const category = item.closest('.activity-category').querySelector('.activity-category-title').textContent;
     const desc = item.dataset.desc;
     const detail = item.dataset.detail;
     const facts = (item.dataset.facts || '').split('|').filter(Boolean);
-    item.addEventListener('click', () => openInfoModal(category, title, [desc, detail, facts]));
+    item.addEventListener('click', () => openInfoModal(category, title, [desc, detail, facts], activityIcons[title]));
   });
 
   const seasonExtras = {
