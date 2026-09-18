@@ -222,22 +222,22 @@ if (eventModal) {
     Summer: {
       intro: 'Long days on the water and in the pines — Magnolia’s busiest, brightest season, with warm afternoons and cool evenings on the lake.',
       moment: 'Guests linger longest at golden hour, when the paddle boats come out and the light on Lake Conlin turns amber.',
-      facts: ['Average highs: 75–85°F (24–29°C)', 'Pack: swimwear, sun hat, insect repellent', 'Signature moment: sunset paddle on the lake']
+      facts: ['Average highs: 90–95°F (32–35°C)', 'Pack: swimwear, sun hat, insect repellent', 'Signature moment: sunset paddle on the lake']
     },
     Autumn: {
-      intro: 'The mountains turn gold before the first snow, and the crowds thin out — a quieter, slower stretch on the grounds.',
-      moment: 'The Honeymoon Bluff trail is at its best here, with the whole valley turning color below the lookout.',
-      facts: ['Average highs: 55–68°F (13–20°C)', 'Pack: layers, waterproof boots', 'Signature moment: sunrise at Honeymoon Bluff']
+      intro: 'The orange groves turn bright and the humidity finally breaks — a quieter, slower stretch on the grounds.',
+      moment: 'The Heron Point overlook is at its best here, with sandhill cranes passing overhead in the evening light.',
+      facts: ['Average highs: 82–88°F (28–31°C)', 'Pack: light layers, sun hat', 'Signature moment: evening watch at Heron Point']
     },
     Winter: {
-      intro: 'The season Magnolia’s North Wing was built for: deep snow, deep quiet, and a fire waiting in every room.',
-      moment: 'Evenings end on the lake, where a cleared rink stays lit for skating long after the ski trails close.',
-      facts: ['Average highs: 25–40°F (-4–4°C)', 'Pack: ski gear, thermal layers', 'Signature moment: ice skating under string lights']
+      intro: 'Magnolia’s mildest, most sociable season: cool mornings, warm afternoons, and manatees gathering in the lake\'s warmer coves.',
+      moment: 'Evenings end on the water, where lantern-lit pontoon cruises keep running long after the last manatee tour of the day.',
+      facts: ['Average highs: 70–75°F (21–24°C)', 'Pack: light layers, a jacket for evenings', 'Signature moment: lantern cruise on Lake Conlin']
     },
     Spring: {
       intro: 'The quietest, greenest season on the grounds, as the wildlife wakes up and the trails empty out.',
       moment: 'Otters are most active in the early morning, playing in the shallows just past the lobby dock.',
-      facts: ['Average highs: 50–65°F (10–18°C)', 'Pack: light layers, rain jacket', 'Signature moment: otters at play near the lobby dock']
+      facts: ['Average highs: 80–85°F (27–29°C)', 'Pack: light layers, rain jacket', 'Signature moment: otters at play near the lobby dock']
     }
   };
 
@@ -339,17 +339,17 @@ if (eventModal) {
       paragraphs: [
         "The East Wing slows you down on purpose. Clean timber lines, paper-soft light through shoji-style screens, and long sightlines toward the garden borrow from a design language built around stillness — the kind found in a tea room or a temple courtyard.",
         "Interiors favor restraint over ornament: a single ceramic vessel, a low platform bed, a window framed like a piece of art. Materials are natural and honest — unlacquered wood, stone, washi-textured paper — chosen to age quietly rather than demand attention.",
-        "It's the wing guests return to for the seasonal rituals Magnolia is built around: watching the first snow settle over the pines, or the blueberry bushes ripen in summer, from a room designed to make watching feel like the whole point."
+        "It's the wing guests return to for the seasonal rituals Magnolia is built around: watching the mist lift off Lake Conlin at dawn, or the blueberry bushes ripen in summer, from a room designed to make watching feel like the whole point."
       ],
       details: ['Shoji-style screens and low platform beds', 'Natural, unlacquered materials throughout', 'Long sightlines framed toward the garden']
     },
     North: {
       paragraphs: [
-        "The North Wing is built for the mountain — thick felted textiles, deep saturated color, and a hearth-forward layout that makes every room feel like it's facing a fire even when it isn't. It draws on the nomadic craft traditions of North and Central Asia: hand-knotted rugs, embroidered wool, carved wooden furniture with real weight to it.",
-        "This is the wing that leans hardest into Magnolia's winter identity. Rooms are oriented toward the Gunflint Trail views, with boot rooms and gear storage built in rather than bolted on, so the transition from a day of skiing or ice fishing to a warm room is as short as possible.",
-        "Color does the work other wings leave to texture — rust, ochre, and deep indigo against pale plaster walls, a palette meant to hold its own against a snow-white world outside the window."
+        "The North Wing carries the craft traditions of North and Central Asia — thick felted textiles, deep saturated color, and a hearth-forward layout that makes every room feel gathered around a fire even when it isn't. Hand-knotted rugs, embroidered wool, and carved wooden furniture give it real weight against Magnolia's lighter, garden-facing wings.",
+        "This is the wing that leans hardest into Magnolia's cool-season identity. Rooms are oriented toward the Lake Conlin views, with mudrooms and gear storage built in rather than bolted on, so the transition from a day on the water or the trails to a warm room is as short as possible.",
+        "Color does the work other wings leave to texture — rust, ochre, and deep indigo against pale plaster walls, a palette meant to hold its own against the pale morning mist over the lake."
       ],
-      details: ['Hearth-forward room layouts', 'Built-in boot rooms and gear storage', 'Hand-knotted rugs and embroidered wool textiles']
+      details: ['Hearth-forward room layouts', 'Built-in mudrooms and gear storage', 'Hand-knotted rugs and embroidered wool textiles']
     },
     West: {
       paragraphs: [
