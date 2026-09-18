@@ -221,7 +221,7 @@ if (eventModal) {
   const seasonExtras = {
     Summer: {
       intro: 'Long days on the water and in the pines — Magnolia’s busiest, brightest season, with warm afternoons and cool evenings on the lake.',
-      moment: 'Guests linger longest at golden hour, when the paddle boats come out and the light on Fallen Leaf Lake turns amber.',
+      moment: 'Guests linger longest at golden hour, when the paddle boats come out and the light on Lake Conlin turns amber.',
       facts: ['Average highs: 75–85°F (24–29°C)', 'Pack: swimwear, sun hat, insect repellent', 'Signature moment: sunset paddle on the lake']
     },
     Autumn: {

@@ -14,7 +14,7 @@
 
 ## About
 
-**Magnolia** is a fictional eco-cultural resort concept set on 18 acres near Fallen Leaf Lake, just outside South Lake Tahoe, California. This repository is the static marketing website built for the concept — a single-page site that combines regional Asian architecture and hospitality with the outdoor lifestyle of the Sierra Nevada.
+**Magnolia** is a fictional eco-cultural resort concept set on 18 acres near Lake Conlin, just outside St. Cloud, Florida. This repository is the static marketing website built for the concept — a single-page site that combines regional Asian architecture and hospitality with the outdoor lifestyle of Central Florida.
 
 The project exists to explore hospitality branding, information architecture, and UI design for a resort with four distinct "wings" (South, East, North, West), each inspired by a different region of Asia, surrounding a shared garden atrium.
 
