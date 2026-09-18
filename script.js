@@ -194,13 +194,103 @@ if (eventModal) {
     });
   };
 
+  const groundIcons = {
+    'Flower Garden Atrium': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="110" r="60"/>
+      <circle class="ill-line-soft" cx="110" cy="110" r="44"/>
+      <g class="ill-line" transform="translate(110 110) scale(0.5)">
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(72)"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(144)"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(216)"/>
+        <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(288)"/>
+      </g>
+      <circle class="ill-accent" cx="110" cy="110" r="7"/>
+    </svg>`,
+    'Restaurant': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <circle class="ill-line" cx="110" cy="130" r="38"/>
+      <circle class="ill-line-soft" cx="110" cy="130" r="24"/>
+      <g class="ill-line">
+        <line x1="60" y1="96" x2="60" y2="150"/>
+        <line x1="54" y1="96" x2="54" y2="112"/>
+        <line x1="60" y1="96" x2="60" y2="112"/>
+        <line x1="66" y1="96" x2="66" y2="112"/>
+        <path d="M160,96 C168,100 168,112 160,116 L160,150"/>
+      </g>
+    </svg>`,
+    'Spa': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <g class="ill-line-soft">
+        <path d="M92,60 C86,50 96,42 92,30"/>
+        <path d="M110,58 C104,46 116,38 110,24"/>
+        <path d="M128,60 C122,50 132,42 128,30"/>
+      </g>
+      <g class="ill-line">
+        <ellipse cx="110" cy="150" rx="42" ry="14"/>
+        <ellipse cx="110" cy="130" rx="32" ry="12"/>
+        <ellipse cx="110" cy="112" rx="22" ry="10"/>
+      </g>
+    </svg>`,
+    'Art Gallery': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="90" r="58"/>
+      <path class="ill-line-soft" d="M40,60 L180,60"/>
+      <line class="ill-line-soft" x1="110" y1="60" x2="110" y2="48"/>
+      <rect class="ill-solid" x="66" y="60" width="88" height="70" rx="2"/>
+      <circle class="ill-accent" cx="132" cy="76" r="6"/>
+      <path class="ill-line" d="M78,118 L100,90 L118,108 L132,84 L142,118 Z"/>
+    </svg>`,
+    'Indoor Activity Hall': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="90" r="58"/>
+      <path class="ill-solid" d="M70,130 C60,110 66,84 90,76 C118,66 148,80 150,106 C152,126 136,138 118,132 C122,142 114,152 102,148 C96,146 94,138 98,132 C82,138 74,138 70,130 Z"/>
+      <g class="ill-accent">
+        <circle cx="94" cy="98" r="6"/>
+        <circle cx="118" cy="94" r="6"/>
+        <circle cx="134" cy="110" r="6"/>
+      </g>
+      <path class="ill-line" d="M150,70 L170,42"/>
+      <path class="ill-line" d="M164,36 C170,32 178,36 176,44 C174,50 166,52 162,46 Z"/>
+    </svg>`,
+    'Market — Booths & Stalls': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <path class="ill-solid" d="M50,90 L110,58 L170,90 L160,94 C150,84 130,84 120,94 C110,84 90,84 80,94 C70,84 60,84 50,90 Z"/>
+      <g class="ill-line">
+        <line x1="66" y1="92" x2="66" y2="150"/>
+        <line x1="154" y1="92" x2="154" y2="150"/>
+      </g>
+      <path class="ill-line-soft" d="M66,150 L154,150"/>
+      <path class="ill-accent" d="M100,100 L100,116 L110,110 L120,116 L120,100 Z"/>
+    </svg>`,
+    'Pool, Sauna & Onsen': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <g class="ill-line-soft">
+        <path d="M92,58 C86,48 96,40 92,28"/>
+        <path d="M128,58 C122,48 132,40 128,28"/>
+      </g>
+      <path class="ill-mound" d="M40,150 C60,138 80,158 100,146 C120,134 140,154 160,142 C170,138 175,140 180,138 L180,190 L40,190 Z"/>
+      <path class="ill-line" d="M40,150 C60,138 80,158 100,146 C120,134 140,154 160,142 C170,138 175,140 180,138"/>
+    </svg>`,
+    'Grounds & Parking': `<svg viewBox="0 0 220 220">
+      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <g class="ill-line">
+        <line x1="70" y1="150" x2="70" y2="100"/>
+        <path d="M70,100 C50,100 42,84 52,68 C46,54 62,42 76,50 C82,38 100,38 104,52 C118,46 130,60 122,74 C132,80 128,96 114,98 C110,102 90,102 86,100 C82,104 74,104 70,100 Z"/>
+      </g>
+      <path class="ill-line-soft" d="M20,190 C60,176 100,198 140,184 C160,178 180,186 200,180"/>
+      <g class="ill-line" transform="translate(150 165)">
+        <path d="M-22,10 L-18,-6 C-16,-12 14,-12 16,-6 L20,10 Z"/>
+        <circle cx="-12" cy="10" r="5"/>
+        <circle cx="10" cy="10" r="5"/>
+      </g>
+    </svg>`
+  };
   document.querySelectorAll('.ground-item[data-desc]').forEach((item) => {
     const title = item.querySelector('h3').textContent;
     const desc = item.dataset.desc;
     const detail = item.dataset.detail;
     const facts = (item.dataset.facts || '').split('|').filter(Boolean);
     item.addEventListener('click', () => {
-      openInfoModal('The Grounds', title, [desc, detail, facts]);
+      openInfoModal('The Grounds', title, [desc, detail, facts], groundIcons[title]);
       appendBookingForm(title);
     });
   });
