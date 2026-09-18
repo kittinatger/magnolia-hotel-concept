@@ -268,8 +268,26 @@ h3{font-size:1.5rem;}
   border-radius:6px;
   overflow:hidden;
   aspect-ratio:4/5;
+  background:var(--cream-2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
 }
-.intro-media img{width:100%; height:100%; object-fit:cover; display:block;}
+.intro-illustration{width:100%; height:100%;}
+.intro-illustration-sun{fill:rgba(201,162,75,0.14);}
+.intro-illustration-trees path{
+  fill:none;
+  stroke:var(--forest);
+  stroke-width:2.5;
+  stroke-linejoin:round;
+  stroke-linecap:round;
+  opacity:0.55;
+}
+.intro-illustration-water{fill:var(--forest); opacity:0.16;}
+.intro-illustration-water-2{opacity:0.1;}
+.intro-illustration-bloom path{fill:var(--cream); stroke:var(--forest); stroke-width:2;}
+.intro-illustration-bloom circle{fill:var(--gold);}
 .intro-text{max-width:520px;}
 .intro-text .eyebrow{margin-bottom:14px;}
 .intro-text h2{margin-bottom:22px;}
