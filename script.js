@@ -196,91 +196,153 @@ if (eventModal) {
 
   const groundIcons = {
     'Flower Garden Atrium': `<svg viewBox="0 0 220 220">
-      <circle class="ill-halo" cx="110" cy="110" r="60"/>
-      <circle class="ill-line-soft" cx="110" cy="110" r="44"/>
-      <g class="ill-line" transform="translate(110 110) scale(0.5)">
+      <circle class="ill-halo" cx="110" cy="108" r="62"/>
+      <circle class="ill-line-soft" cx="110" cy="108" r="46"/>
+      <g class="ill-line-soft">
+        <path d="M110,58 C116,50 116,40 110,34 C104,40 104,50 110,58 Z"/>
+        <path d="M160,108 C168,102 178,102 184,108 C178,114 168,114 160,108 Z"/>
+        <path d="M110,158 C116,166 116,176 110,182 C104,176 104,166 110,158 Z"/>
+        <path d="M60,108 C52,102 42,102 36,108 C42,114 52,114 60,108 Z"/>
+      </g>
+      <g class="ill-line" transform="translate(110 108) scale(0.52)">
         <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z"/>
         <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(72)"/>
         <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(144)"/>
         <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(216)"/>
         <path d="M0,-92 C34,-70 40,-24 0,4 C-40,-24 -34,-70 0,-92 Z" transform="rotate(288)"/>
       </g>
-      <circle class="ill-accent" cx="110" cy="110" r="7"/>
+      <circle class="ill-accent" cx="110" cy="108" r="7"/>
+      <ellipse class="ill-mound" cx="110" cy="188" rx="54" ry="9"/>
     </svg>`,
     'Restaurant': `<svg viewBox="0 0 220 220">
-      <circle class="ill-halo" cx="110" cy="86" r="58"/>
-      <circle class="ill-line" cx="110" cy="130" r="38"/>
-      <circle class="ill-line-soft" cx="110" cy="130" r="24"/>
-      <g class="ill-line">
-        <line x1="60" y1="96" x2="60" y2="150"/>
-        <line x1="54" y1="96" x2="54" y2="112"/>
-        <line x1="60" y1="96" x2="60" y2="112"/>
-        <line x1="66" y1="96" x2="66" y2="112"/>
-        <path d="M160,96 C168,100 168,112 160,116 L160,150"/>
+      <circle class="ill-halo" cx="110" cy="90" r="58"/>
+      <g class="ill-line-soft">
+        <path d="M100,66 C95,58 103,52 99,42"/>
+        <path d="M118,64 C113,56 121,50 117,40"/>
       </g>
+      <rect class="ill-line-soft" x="52" y="118" width="116" height="56" rx="10"/>
+      <circle class="ill-line" cx="110" cy="132" r="36"/>
+      <circle class="ill-line-soft" cx="110" cy="132" r="23"/>
+      <g class="ill-line">
+        <line x1="64" y1="100" x2="64" y2="156"/>
+        <line x1="58" y1="100" x2="58" y2="118"/>
+        <line x1="64" y1="100" x2="64" y2="118"/>
+        <line x1="70" y1="100" x2="70" y2="118"/>
+        <path d="M156,100 C164,104 164,116 156,120 L156,156"/>
+      </g>
+      <path class="ill-accent" d="M132,120 C138,114 148,114 152,120 C148,126 138,126 132,120 Z"/>
     </svg>`,
     'Spa': `<svg viewBox="0 0 220 220">
-      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <circle class="ill-halo" cx="110" cy="88" r="58"/>
       <g class="ill-line-soft">
-        <path d="M92,60 C86,50 96,42 92,30"/>
-        <path d="M110,58 C104,46 116,38 110,24"/>
-        <path d="M128,60 C122,50 132,42 128,30"/>
+        <path d="M92,62 C86,52 96,44 92,32"/>
+        <path d="M110,60 C104,48 116,40 110,26"/>
+        <path d="M128,62 C122,52 132,44 128,32"/>
       </g>
       <g class="ill-line">
-        <ellipse cx="110" cy="150" rx="42" ry="14"/>
-        <ellipse cx="110" cy="130" rx="32" ry="12"/>
-        <ellipse cx="110" cy="112" rx="22" ry="10"/>
+        <ellipse cx="110" cy="150" rx="40" ry="13"/>
+        <ellipse cx="110" cy="131" rx="30" ry="11"/>
+        <ellipse cx="110" cy="114" rx="21" ry="9"/>
+      </g>
+      <g class="ill-line">
+        <path d="M150,142 C158,134 158,122 150,116 C146,126 146,136 150,142 Z"/>
+        <path d="M164,148 C172,142 172,132 164,126 C160,134 160,142 164,148 Z"/>
+      </g>
+      <g class="ill-line-soft">
+        <ellipse cx="110" cy="168" rx="56" ry="8"/>
+        <ellipse cx="110" cy="180" rx="70" ry="8"/>
       </g>
     </svg>`,
     'Art Gallery': `<svg viewBox="0 0 220 220">
-      <circle class="ill-halo" cx="110" cy="90" r="58"/>
-      <path class="ill-line-soft" d="M40,60 L180,60"/>
-      <line class="ill-line-soft" x1="110" y1="60" x2="110" y2="48"/>
-      <rect class="ill-solid" x="66" y="60" width="88" height="70" rx="2"/>
-      <circle class="ill-accent" cx="132" cy="76" r="6"/>
-      <path class="ill-line" d="M78,118 L100,90 L118,108 L132,84 L142,118 Z"/>
+      <circle class="ill-halo" cx="110" cy="92" r="58"/>
+      <path class="ill-line-soft" d="M30,58 L190,58"/>
+      <line class="ill-line-soft" x1="96" y1="58" x2="96" y2="46"/>
+      <line class="ill-line-soft" x1="154" y1="58" x2="154" y2="46"/>
+      <rect class="ill-solid" x="58" y="58" width="76" height="62" rx="2"/>
+      <circle class="ill-accent" cx="118" cy="72" r="5"/>
+      <path class="ill-line" d="M68,112 L86,88 L100,104 L112,80 L124,112 Z"/>
+      <rect class="ill-solid" x="146" y="70" width="40" height="50" rx="2"/>
+      <path class="ill-line" d="M152,110 L166,92 L180,110 Z"/>
+      <path class="ill-line-soft" d="M20,164 L200,164"/>
+      <path class="ill-line" d="M40,164 C40,150 52,144 52,132 C56,144 64,150 64,164"/>
     </svg>`,
     'Indoor Activity Hall': `<svg viewBox="0 0 220 220">
       <circle class="ill-halo" cx="110" cy="90" r="58"/>
-      <path class="ill-solid" d="M70,130 C60,110 66,84 90,76 C118,66 148,80 150,106 C152,126 136,138 118,132 C122,142 114,152 102,148 C96,146 94,138 98,132 C82,138 74,138 70,130 Z"/>
+      <path class="ill-solid" d="M64,132 C54,112 60,86 84,78 C112,68 142,82 144,108 C146,128 130,140 112,134 C116,144 108,154 96,150 C90,148 88,140 92,134 C76,140 68,140 64,132 Z"/>
       <g class="ill-accent">
-        <circle cx="94" cy="98" r="6"/>
-        <circle cx="118" cy="94" r="6"/>
-        <circle cx="134" cy="110" r="6"/>
+        <circle cx="88" cy="100" r="6"/>
+        <circle cx="112" cy="96" r="6"/>
+        <circle cx="128" cy="112" r="6"/>
       </g>
-      <path class="ill-line" d="M150,70 L170,42"/>
-      <path class="ill-line" d="M164,36 C170,32 178,36 176,44 C174,50 166,52 162,46 Z"/>
+      <g class="ill-line">
+        <path d="M144,72 L168,42"/>
+        <path d="M162,36 C168,32 176,36 174,44 C172,50 164,52 160,46 Z"/>
+        <path d="M158,86 L184,66"/>
+        <path d="M178,60 C184,57 190,62 187,68 C185,73 178,74 175,69 Z"/>
+      </g>
+      <g class="ill-line-soft">
+        <circle cx="52" cy="158" r="16"/>
+        <path d="M40,150 C48,154 56,154 64,150"/>
+        <path d="M40,166 C48,162 56,162 64,166"/>
+        <line x1="60" y1="146" x2="76" y2="132"/>
+      </g>
+      <path class="ill-line-soft" d="M20,182 L200,182"/>
     </svg>`,
     'Market — Booths & Stalls': `<svg viewBox="0 0 220 220">
       <circle class="ill-halo" cx="110" cy="84" r="58"/>
-      <path class="ill-solid" d="M50,90 L110,58 L170,90 L160,94 C150,84 130,84 120,94 C110,84 90,84 80,94 C70,84 60,84 50,90 Z"/>
+      <path class="ill-solid" d="M46,90 L110,56 L174,90 L164,95 C154,84 132,84 122,95 C112,84 108,84 98,95 C88,84 66,84 56,95 Z"/>
+      <path class="ill-accent" d="M96,95 L96,112 L106,106 L116,112 L116,95 Z"/>
       <g class="ill-line">
-        <line x1="66" y1="92" x2="66" y2="150"/>
-        <line x1="154" y1="92" x2="154" y2="150"/>
+        <line x1="62" y1="93" x2="62" y2="162"/>
+        <line x1="158" y1="93" x2="158" y2="162"/>
       </g>
-      <path class="ill-line-soft" d="M66,150 L154,150"/>
-      <path class="ill-accent" d="M100,100 L100,116 L110,110 L120,116 L120,100 Z"/>
+      <path class="ill-line" d="M62,126 L158,126"/>
+      <g class="ill-line">
+        <ellipse cx="86" cy="116" rx="9" ry="7"/>
+        <ellipse cx="106" cy="118" rx="8" ry="6"/>
+        <ellipse cx="126" cy="115" rx="9" ry="7"/>
+      </g>
+      <path class="ill-line-soft" d="M30,162 L190,162"/>
     </svg>`,
     'Pool, Sauna & Onsen': `<svg viewBox="0 0 220 220">
-      <circle class="ill-halo" cx="110" cy="86" r="58"/>
+      <circle class="ill-halo" cx="110" cy="82" r="58"/>
       <g class="ill-line-soft">
-        <path d="M92,58 C86,48 96,40 92,28"/>
-        <path d="M128,58 C122,48 132,40 128,28"/>
+        <path d="M92,56 C86,46 96,38 92,26"/>
+        <path d="M128,56 C122,46 132,38 128,26"/>
       </g>
-      <path class="ill-mound" d="M40,150 C60,138 80,158 100,146 C120,134 140,154 160,142 C170,138 175,140 180,138 L180,190 L40,190 Z"/>
-      <path class="ill-line" d="M40,150 C60,138 80,158 100,146 C120,134 140,154 160,142 C170,138 175,140 180,138"/>
+      <path class="ill-mound" d="M40,140 C60,128 80,148 100,136 C120,124 140,144 160,132 C170,128 175,130 180,128 L180,182 L40,182 Z"/>
+      <path class="ill-line" d="M40,140 C60,128 80,148 100,136 C120,124 140,144 160,132 C170,128 175,130 180,128"/>
+      <g class="ill-line">
+        <ellipse cx="52" cy="150" rx="9" ry="6"/>
+        <ellipse cx="66" cy="158" rx="7" ry="5"/>
+        <ellipse cx="168" cy="150" rx="9" ry="6"/>
+        <ellipse cx="154" cy="158" rx="7" ry="5"/>
+      </g>
+      <g class="ill-line">
+        <line x1="186" y1="112" x2="186" y2="150"/>
+        <rect x="178" y="120" width="16" height="18" rx="2"/>
+      </g>
     </svg>`,
     'Grounds & Parking': `<svg viewBox="0 0 220 220">
-      <circle class="ill-halo" cx="110" cy="86" r="58"/>
-      <g class="ill-line">
-        <line x1="70" y1="150" x2="70" y2="100"/>
-        <path d="M70,100 C50,100 42,84 52,68 C46,54 62,42 76,50 C82,38 100,38 104,52 C118,46 130,60 122,74 C132,80 128,96 114,98 C110,102 90,102 86,100 C82,104 74,104 70,100 Z"/>
+      <circle class="ill-halo" cx="110" cy="84" r="58"/>
+      <g class="ill-line-soft">
+        <line x1="156" y1="150" x2="156" y2="122"/>
+        <path d="M156,122 C144,122 138,112 144,102 C140,92 152,84 162,90 C166,82 178,82 180,90 C188,86 196,94 190,102 C196,106 194,116 184,118 C182,120 168,120 156,122 Z"/>
       </g>
-      <path class="ill-line-soft" d="M20,190 C60,176 100,198 140,184 C160,178 180,186 200,180"/>
-      <g class="ill-line" transform="translate(150 165)">
-        <path d="M-22,10 L-18,-6 C-16,-12 14,-12 16,-6 L20,10 Z"/>
-        <circle cx="-12" cy="10" r="5"/>
-        <circle cx="10" cy="10" r="5"/>
+      <g class="ill-line">
+        <line x1="68" y1="150" x2="68" y2="96"/>
+        <path d="M68,96 C48,96 40,80 50,64 C44,50 60,38 74,46 C80,34 98,34 102,48 C116,42 128,56 120,70 C130,76 126,92 112,94 C108,98 88,98 84,96 C80,100 72,100 68,96 Z"/>
+      </g>
+      <path class="ill-line-soft" d="M20,188 C60,174 100,196 140,182 C160,176 180,184 200,178"/>
+      <g class="ill-line" transform="translate(112 168)">
+        <path d="M-24,10 L-20,-6 C-18,-13 16,-13 18,-6 L22,10 Z"/>
+        <circle cx="-14" cy="10" r="5"/>
+        <circle cx="12" cy="10" r="5"/>
+      </g>
+      <ellipse class="ill-mound" cx="112" cy="184" rx="36" ry="6"/>
+      <g class="ill-line">
+        <line x1="188" y1="150" x2="188" y2="188"/>
+        <rect x="176" y="126" width="24" height="24" rx="2"/>
       </g>
     </svg>`
   };
