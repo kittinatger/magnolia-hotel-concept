@@ -58,6 +58,7 @@ if (newsletterForm) {
 const eventModal = document.getElementById('eventModal');
 const eventInfo = {};
 if (eventModal) {
+  const modalIcon = document.getElementById('eventModalIcon');
   const modalEyebrow = document.getElementById('eventModalEyebrow');
   const modalTitle = document.getElementById('eventModalTitle');
   const modalBody = document.getElementById('eventModalBody');
@@ -66,7 +67,10 @@ if (eventModal) {
   // body is an array of segments: a string renders as a paragraph,
   // a nested array renders as a bullet list — lets a single modal
   // mix narrative paragraphs with a detail list in any order.
-  const openInfoModal = (eyebrow, title, body) => {
+  // icon is an optional inline SVG string shown above the eyebrow.
+  const openInfoModal = (eyebrow, title, body, icon) => {
+    modalIcon.innerHTML = icon || '';
+    modalIcon.classList.toggle('visible', Boolean(icon));
     modalEyebrow.textContent = eyebrow || '';
     modalTitle.textContent = title;
     modalBody.innerHTML = '';
@@ -201,12 +205,18 @@ if (eventModal) {
     });
   });
 
+  const sustainIcons = {
+    'Solar Power': '<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="10"/><line x1="24" y1="2" x2="24" y2="10"/><line x1="24" y1="38" x2="24" y2="46"/><line x1="2" y1="24" x2="10" y2="24"/><line x1="38" y1="24" x2="46" y2="24"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="33" y1="33" x2="39" y2="39"/><line x1="9" y1="39" x2="15" y2="33"/><line x1="33" y1="15" x2="39" y2="9"/></svg>',
+    'Water Conservation': '<svg viewBox="0 0 48 48"><path d="M24,4 C34,20 40,28 40,34 C40,42 33,46 24,46 C15,46 8,42 8,34 C8,28 14,20 24,4 Z"/></svg>',
+    'Native Landscaping': '<svg viewBox="0 0 48 48"><path d="M8,40 C8,22 22,8 42,8 C42,28 28,40 8,40 Z"/><path d="M10,38 C18,30 26,24 36,16"/></svg>',
+    'Locally Sourced': '<svg viewBox="0 0 48 48"><path d="M10,20 L38,20 L34,42 L14,42 Z"/><path d="M14,20 C14,12 34,12 34,20"/><path d="M24,18 L24,8 M24,12 C19,9 17,4 20,2 C23,4 24,9 24,12 Z"/></svg>'
+  };
   document.querySelectorAll('.sustain-item[data-desc]').forEach((item) => {
     const title = item.querySelector('h3').textContent;
     const desc = item.dataset.desc;
     const detail = item.dataset.detail;
     const facts = (item.dataset.facts || '').split('|').filter(Boolean);
-    item.addEventListener('click', () => openInfoModal('Sustainability', title, [desc, detail, facts]));
+    item.addEventListener('click', () => openInfoModal('Sustainability', title, [desc, detail, facts], sustainIcons[title]));
   });
 
   document.querySelectorAll('.activity-item[data-desc]').forEach((item) => {
